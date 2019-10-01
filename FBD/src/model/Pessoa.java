@@ -5,6 +5,8 @@ public abstract class Pessoa {
 	
 	String nome;
 	String cpf;
+	Endereco end;
+	int identidade;
 	
 	public String getNome() {
 		return nome;

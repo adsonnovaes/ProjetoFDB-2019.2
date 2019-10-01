@@ -7,6 +7,10 @@ public class Rota {
 	int id;
 	
 	Cidade origem;
+	Cidade destino;
+	float km;
+	public static ArrayList<Cidade> paradas = new ArrayList<>();
+	
 	
 	public int getId() {
 		return id;
@@ -32,7 +36,6 @@ public class Rota {
 	public static void setParadas(ArrayList<Cidade> paradas) {
 		Rota.paradas = paradas;
 	}
-	Cidade destino;
-	public static ArrayList<Cidade> paradas = new ArrayList<>();
+
 
 }
