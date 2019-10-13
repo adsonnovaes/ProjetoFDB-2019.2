@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Content" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerLogin">
+   <children>
+      <Pane fx:id="PanelLogin" layoutX="-1.0" layoutY="-7.0" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #090e3d;">
+         <children>
+            <Label layoutX="254.0" layoutY="121.0" prefHeight="52.0" prefWidth="192.0" text="Next Stop" textFill="#fefefe">
+               <font>
+                  <Font name="Constantia" size="43.0" />
+               </font>
+            </Label>
+            <Label layoutX="233.0" layoutY="301.0" text="Senha:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="233.0" layoutY="250.0" text="Login:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="entrarLoginButton" layoutX="234.0" layoutY="381.0" onAction="#ShowLogin" prefHeight="30.0" prefWidth="58.0" ripplerFill="#f8f8f8" text="Entrar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="sairLoginButton" layoutX="313.0" layoutY="381.0" onAction="#ShowSairLogin" prefHeight="30.0" prefWidth="55.0" ripplerFill="#f8f8f8" text="Sair" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
+            <JFXPasswordField fx:id="passSenha" layoutX="319.0" layoutY="301.0" promptText="Insira a senha" unFocusColor="#c5c5c5" />
+            <JFXTextField fx:id="textLogin" layoutX="319.0" layoutY="250.0" promptText="Insira o login" unFocusColor="#c5c5c5" />
+            <JFXButton fx:id="cadastrarBtn" layoutX="377.0" layoutY="381.0" onAction="#ShowCadastrar" prefHeight="30.0" prefWidth="88.0" ripplerFill="#f8f8f8" text="Cadastrar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
