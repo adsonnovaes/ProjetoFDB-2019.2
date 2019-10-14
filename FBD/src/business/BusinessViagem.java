@@ -1,24 +1,24 @@
-package dao;
+package business;
 
 import java.util.List;
 
-import exception.DaoException;
+import exception.BusinessException;
 import model.Viagem;
 
-public class DaoViagem implements IDaoViagem{
+public class BusinessViagem implements IBusinessViagem{
 
 	@Override
-	public void salvarViagem(Viagem viagem) throws DaoException {
+	public void salvarViagem(Viagem viagem) throws BusinessException {
 
 	}
 
 	@Override
-	public Viagem editarViagem(Viagem viagem) throws DaoException {
+	public Viagem editarViagem(Viagem viagem) throws BusinessException {
 		return null;
 	}
 
 	@Override
-	public Viagem buscarViagemId(int id) throws DaoException {
+	public Viagem buscarViagemId(int id) throws BusinessException {
 		return null;
 	}
 
@@ -36,9 +36,5 @@ public class DaoViagem implements IDaoViagem{
 	public List<Viagem> buscaAll(String i) {
 		return null;
 	}
-
-
-
-
 
 }

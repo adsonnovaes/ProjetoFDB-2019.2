@@ -31,6 +31,9 @@ public class ControllerCadastroCarga implements Initializable{
     private JFXButton btnCancelar;
 
     @FXML
+    private JFXButton btnCargas;
+
+    @FXML
     private JFXTextArea areaDescricao;
 
     @FXML
@@ -52,9 +55,15 @@ public class ControllerCadastroCarga implements Initializable{
 
     }
 
+    @FXML
+    void ShowCargas(ActionEvent event) {
+
+    }
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		boxTipo.getItems().addAll("Perecível","Não-Perecível");
 	}
+
 
 }

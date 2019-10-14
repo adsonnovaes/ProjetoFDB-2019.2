@@ -7,17 +7,17 @@ public class DaoCidade implements IDaoCidade{
 
 	@Override
 	public void salvarCidade(Cidade cidade) throws DaoException {
-		
+
 	}
 
 	@Override
-	public void editarCidade(Cidade cidade) throws DaoException {
-		
+	public Cidade editarCidade(Cidade cidade) throws DaoException {
+		return null;
 	}
 
 	@Override
-	public void buscarCidadeId(int id) throws DaoException {
-		
+	public Cidade buscarCidadeId(int id) throws DaoException {
+		return null;
 	}
 
 

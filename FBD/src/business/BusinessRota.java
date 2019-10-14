@@ -1,24 +1,24 @@
-package dao;
+package business;
 
 import java.util.List;
 
-import exception.DaoException;
+import exception.BusinessException;
 import model.Rota;
 
-public class DaoRota implements IDaoRota{
+public class BusinessRota implements IBusinessRota{
 
 	@Override
-	public void salvarRota(Rota rota) throws DaoException {
+	public void salvarRota(Rota rota) throws BusinessException {
 
 	}
 
 	@Override
-	public Rota editarRota(Rota rota) throws DaoException {
+	public Rota editarRota(Rota rota) throws BusinessException {
 		return null;
 	}
 
 	@Override
-	public Rota buscarRotaId(int id) throws DaoException {
+	public Rota buscarRotaId(int id) throws BusinessException {
 		return null;
 	}
 
@@ -31,6 +31,5 @@ public class DaoRota implements IDaoRota{
 	public List<Rota> buscaAll(String i) {
 		return null;
 	}
-
 
 }
