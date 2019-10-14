@@ -18,27 +18,27 @@
                <children>
                   <JFXButton fx:id="btnVeiculo" alignment="TOP_LEFT" onAction="#showCadastrarVeiculo" prefHeight="31.0" prefWidth="197.0" style="-fx-font-size: 15px;" styleClass="options-btn" text="Veículo">
                      <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="COFFEE" size="16" />
+                        <FontAwesomeIconView fill="WHITE" glyphName="TRUCK" size="16" />
                      </graphic>
                   </JFXButton>
                   <JFXButton fx:id="btnCarga" alignment="TOP_LEFT" onAction="#ShowCadastrarCarga" prefHeight="31.0" prefWidth="193.0" style="-fx-font-size: 15px;" styleClass="options-btn" text="Carga">
                      <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="CHILD" size="16" />
+                        <FontAwesomeIconView fill="WHITE" glyphName="ARCHIVE" size="16" />
                      </graphic>
                   </JFXButton>
                   <JFXButton fx:id="btnMotorista" alignment="TOP_LEFT" onAction="#ShowCadastrarMotorista" prefHeight="31.0" prefWidth="201.0" style="-fx-font-size: 15px;" styleClass="options-btn" text="Motorista">
                      <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="LEANPUB" size="16" />
+                        <FontAwesomeIconView fill="WHITE" glyphName="USER" size="16" />
                      </graphic>
                   </JFXButton>
                   <JFXButton fx:id="btnRota" alignment="TOP_LEFT" onAction="#ShowCadastrarRota" prefHeight="31.0" prefWidth="201.0" style="-fx-font-size: 15px;" styleClass="options-btn" text="Rota">
                      <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="TH_LIST" size="16" />
+                        <FontAwesomeIconView fill="WHITE" glyphName="ROAD" size="16" />
                      </graphic>
                   </JFXButton>
                   <JFXButton fx:id="btnViagem" alignment="TOP_LEFT" onAction="#ShowCadastrarViagem" prefHeight="31.0" prefWidth="201.0" style="-fx-font-size: 15px;" styleClass="options-btn" text="Viagem">
                      <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="BLACK_TIE" size="16" />
+                        <FontAwesomeIconView fill="WHITE" glyphName="MAP_SIGNS" size="16" />
                      </graphic>
                   </JFXButton>
                </children>
@@ -67,7 +67,7 @@
                         <Font name="Verdana" size="12.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="USERS" size="18" />
+                        <FontAwesomeIconView fill="WHITE" glyphName="TRUCK" size="18" />
                      </graphic>
                      <VBox.margin>
                         <Insets right="20.0" />
@@ -78,7 +78,7 @@
                         <Font name="Verdana" size="12.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="USER" size="18" />
+                        <FontAwesomeIconView fill="WHITE" glyphName="USERS" size="18" />
                      </graphic>
                      <VBox.margin>
                         <Insets right="20.0" />
@@ -89,7 +89,7 @@
                         <Font name="Verdana" size="12.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="BLACK_TIE" size="18" />
+                        <FontAwesomeIconView fill="WHITE" glyphName="ROAD" size="18" />
                      </graphic>
                      <VBox.margin>
                         <Insets right="20.0" />
@@ -100,7 +100,7 @@
                         <Font name="Verdana" size="12.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="BOOK" size="18" />
+                        <FontAwesomeIconView fill="WHITE" glyphName="MAP_SIGNS" size="18" />
                      </graphic>
                      <VBox.margin>
                         <Insets right="20.0" />
