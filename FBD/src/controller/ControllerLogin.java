@@ -1,10 +1,13 @@
 package controller;
 
+import java.io.IOException;
+
 import javax.swing.JOptionPane;
 
 import app.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -48,7 +51,12 @@ public class ControllerLogin {
     }
 
     @FXML
-    void ShowCadastrar(ActionEvent event) {
+    void ShowCadastrar(ActionEvent event) throws IOException {
+		Pane ap = FXMLLoader.load(getClass().getResource("/view/TelaCadastroFuncionario.fxml"));
+
+    	Content.getChildren().removeAll();
+    	Content.getChildren().setAll(ap);
+    	Content.toFront();
 
     }
 
