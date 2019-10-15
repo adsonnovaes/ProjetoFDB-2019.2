@@ -13,9 +13,6 @@ public class ControllerCadastroRota {
     private JFXTextField textKm;
 
     @FXML
-    private JFXTextField textCodigo;
-
-    @FXML
     private JFXTextField textOrigem;
 
     @FXML

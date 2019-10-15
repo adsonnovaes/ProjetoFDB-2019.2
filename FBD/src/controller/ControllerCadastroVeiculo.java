@@ -62,11 +62,6 @@ public class ControllerCadastroVeiculo implements Initializable{
     @FXML
     private JFXTextField textCiot;
 
-    @FXML
-    private JFXTextField textMotorista;
-
-    @FXML
-    private JFXTextField textCpf;
 
     @FXML
     private JFXButton btnConfirmar;

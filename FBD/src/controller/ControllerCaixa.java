@@ -17,6 +17,9 @@ public class ControllerCaixa {
     private JFXButton btnCancelar;
 
     @FXML
+    private JFXButton btnCargas;
+
+    @FXML
     private TableView<Caixa> tabCaixa;
 
     @FXML
@@ -38,6 +41,12 @@ public class ControllerCaixa {
 
     @FXML
     void ShowConfirmarCadastro(ActionEvent event) {
+
+    }
+
+
+    @FXML
+    void ShowCargas(ActionEvent event) {
 
     }
 
