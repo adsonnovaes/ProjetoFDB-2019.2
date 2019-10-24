@@ -1,13 +1,13 @@
 package model;
 
 public abstract class Pessoa {
-	
-	
+
+
 	String nome;
 	String cpf;
 	Endereco end;
 	int identidade;
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -20,7 +20,19 @@ public abstract class Pessoa {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+	public Endereco getEnd() {
+		return end;
+	}
+	public void setEnd(Endereco end) {
+		this.end = end;
+	}
+	public int getIdentidade() {
+		return identidade;
+	}
+	public void setIdentidade(int identidade) {
+		this.identidade = identidade;
+	}
 
-	
+
 
 }

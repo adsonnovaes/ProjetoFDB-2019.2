@@ -1,16 +1,18 @@
 package model;
 
 public class Endereco {
-	
-	
+
+
 	int id;
-	
-	String rua;
-	int num_casa;
-	String bairro;
-	String ponto_referencia;
-	
-	
+
+	private String rua;
+	private int num_casa;
+	private String bairro;
+	private int cep;
+	private String cidade;
+	private String uf;
+
+
 	public int getId() {
 		return id;
 	}
@@ -35,11 +37,26 @@ public class Endereco {
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
-	public String getPonto_referencia() {
-		return ponto_referencia;
+	public int getCep() {
+		return cep;
 	}
-	public void setPonto_referencia(String ponto_referencia) {
-		this.ponto_referencia = ponto_referencia;
+	public void setCep(int cep) {
+		this.cep = cep;
 	}
-	
+	public String getCidade() {
+		return cidade;
+	}
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+	public String getUf() {
+		return uf;
+	}
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
+
+
+
+
 }

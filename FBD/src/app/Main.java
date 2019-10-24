@@ -2,6 +2,8 @@ package app;
 
 import java.io.IOException;
 
+import fachada.Fachada;
+import fachada.IFachada;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -19,9 +21,13 @@ public class Main extends Application {
 	private static Scene loginScene;
 	private static Scene mainScene;
 
+	static IFachada fachada = Fachada.getInstance();
+
+
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
+
 
 		Pane login = FXMLLoader.load(getClass().getResource("/view/TelaLogin.fxml"));
 		loginScene = new Scene(login);

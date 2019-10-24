@@ -1,13 +1,16 @@
 package fachada;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import business.BusinessCarga;
+import business.BusinessFuncionario;
 import business.BusinessMotorista;
 import business.BusinessRota;
 import business.BusinessVeiculo;
 import business.BusinessViagem;
 import business.IBusinessCarga;
+import business.IBusinessFuncionario;
 import business.IBusinessMotorista;
 import business.IBusinessRota;
 import business.IBusinessVeiculo;
@@ -30,6 +33,7 @@ public class Fachada implements IFachada{
 	private IBusinessRota businessRota;
 	private IBusinessVeiculo businessVeiculo;
 	private IBusinessMotorista businessMotorista;
+	private IBusinessFuncionario businessFuncionario;
 
 	private static Fachada fachada;
 
@@ -48,6 +52,7 @@ public class Fachada implements IFachada{
         businessRota = new BusinessRota();
         businessVeiculo = new BusinessVeiculo();
         businessMotorista = new BusinessMotorista();
+        businessFuncionario = new BusinessFuncionario();
     }
 
 
@@ -126,22 +131,30 @@ public class Fachada implements IFachada{
 //	Funcionario
 	@Override
 	public void SalvarFuncionario(Funcionario funcionario) throws BusinessException {
+		this.businessFuncionario.SalvarFuncionario(funcionario);
 
 	}
 
 	@Override
 	public void EditarFuncionario(Funcionario funcionario) throws BusinessException {
-
+		this.businessFuncionario.EditarFuncionario(funcionario);
 	}
 
 	@Override
 	public Funcionario BuscarFuncionarioID(int id) throws BusinessException {
-		return null;
+		Funcionario busca = this.businessFuncionario.BuscarFuncionarioID(id);
+		return busca;
 	}
 
 	@Override
 	public List<Funcionario> buscaGeralFuncionario(String busca) throws BusinessException {
-		return null;
+
+		ArrayList<Funcionario> funcionarios = new ArrayList<>();
+
+		funcionarios = (ArrayList<Funcionario>) this.businessFuncionario.buscaGeralFuncionario(busca);
+
+		return funcionarios;
+
 	}
 
 
