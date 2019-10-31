@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.List;
 
 import exception.DaoException;
+import model.Endereco;
 import model.Funcionario;
 import sql.SqlConnection;
 import sql.SqlUtil;
@@ -12,38 +13,45 @@ public class DaoFuncionario implements IDaoFuncionario{
 
     private Connection conexao;
     private PreparedStatement statement;
-    private IDaoEndereco endereco = new DaoEndereco();
-    private ResultSet result;
 
 	@Override
-	public void SalvarFuncionario(Funcionario funcionario) throws DaoException {
+	public int SalvarFuncionario(Funcionario funcionario) throws DaoException {
 
 		try {
-
-			endereco.salvarEndereco(funcionario.getEnd());
-	        int id_endereco = endereco.getCurrentValorTabela("endereco");
-
-            this.conexao = SqlConnection.getConnectionInstance("POSTGRES");
+			System.out.println("Inicio");
+            this.conexao = SqlConnection.creatConnection();
             this.statement = conexao.prepareStatement(SqlUtil.Funcioario.INSERT_ALL);
+
 
             statement.setString(1, funcionario.getNome());
             statement.setString(2, funcionario.getCpf());
             statement.setInt(3, funcionario.getIdentidade());
             statement.setString(4, funcionario.getEmail());
-            statement.setString(5, funcionario.getSenha());;
-            statement.setInt(6, id_endereco);
+            statement.setString(5, funcionario.getSenha());
 
+            System.out.println("Pos conexão");
             statement.execute();
 
+            System.out.println("Salvou funcionario");
+            int cod = 0;
+            ResultSet rs = statement.executeQuery("SELECT LAST_INSERT_ID();");
+            if(rs.next()){
+            	cod = rs.getInt("LAST_INSERT_ID();");
+            }
+
+            rs.close();
+
+
             this.conexao.close();
+            System.out.println(cod);
+            return cod;
 
-
-            funcionario.getEnd().setId(id_endereco);
 
         } catch (Exception ex) {
             ex.printStackTrace();
             throw new DaoException("Erro ao salvar o funcionario");
         }
+
 
 	}
 

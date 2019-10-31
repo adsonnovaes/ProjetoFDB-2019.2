@@ -18,7 +18,7 @@ public class DaoEndereco implements IDaoEndereco{
 
         try {
 
-            this.conexao = SqlConnection.getConnectionInstance("POSTGRES");
+            this.conexao = SqlConnection.creatConnection();
             this.statement = conexao.prepareStatement(SqlUtil.Endereco.INSERT_ALL);
 
             statement.setString(1, end.getRua());
@@ -56,7 +56,7 @@ public class DaoEndereco implements IDaoEndereco{
 
         try {
 
-            this.conexao = SqlConnection.getConnectionInstance("POSTGRES");
+            this.conexao = SqlConnection.creatConnection();
             this.statement = conexao.prepareStatement("select id from " + nomeTabela + " order by id desc limit 1");
 
             result = this.statement.executeQuery();

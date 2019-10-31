@@ -130,8 +130,8 @@ public class Fachada implements IFachada{
 
 //	Funcionario
 	@Override
-	public void SalvarFuncionario(Funcionario funcionario) throws BusinessException {
-		this.businessFuncionario.SalvarFuncionario(funcionario);
+	public int SalvarFuncionario(Funcionario funcionario) throws BusinessException {
+		return this.businessFuncionario.SalvarFuncionario(funcionario);
 
 	}
 

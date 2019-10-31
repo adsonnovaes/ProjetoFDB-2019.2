@@ -5,73 +5,52 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-
-
 public class SqlConnection {
 
-    private static Connection conexao = null;
+    private static Connection connection = null;
 
-//  private static String caminho = "jdbc:postgresql://localhost:5432/RotasViagens";
-//	private static String usuario = "postgres";
-//	private static String senha = "2301@adson";
+    public static boolean bdExiste = false;
 
-    public SqlConnection() {
+    public static Connection creatConnection() {
+
+    	if(!bdExiste){
+    		bdExiste = true;
+    		creatSchema();
+    	}
+
+    	try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			if(connection == null || connection.isClosed()){
+				connection = DriverManager.getConnection(SqlUtil.URL,SqlUtil.USUARIO,SqlUtil.SENHA);
+			}
+
+		} catch (ClassNotFoundException e) {
+			Logger.getLogger(SqlConnection.class.getName()).log(Level.SEVERE, null, e);
+		} catch (SQLException e) {
+			Logger.getLogger(SqlConnection.class.getName()).log(Level.SEVERE, null, e);
+		}
+    	System.out.println(connection);
+		return connection;
 
     }
 
-    public static synchronized Connection getConnectionInstance(String bd) {
-        try {
-            if (conexao == null || conexao.isClosed()) {
-            	conexao = DriverManager.getConnection(SqlUtil.URL,SqlUtil.USUARIO,SqlUtil.SENHA);
-            }
 
-        } catch (SQLException ex) {
-            Logger.getLogger(SqlConnection.class.getName()).log(Level.SEVERE, null, ex);
-            ex.printStackTrace();
-        }
-        return conexao;
+    private static void creatSchema(){
+
+    	try{
+    		Connection con = creatConnection();
+    		Statement st = con.createStatement();
+    		st.execute("CREATE SCHEMA IF NOT EXISTS 'rotasviagens' DEFAULT CHARACTER SET utf8;");
+    		st.close();
+
+    	}catch(Exception e){
+
+    	}
 
     }
+
+
 
 }
 
 
-
-
-
-
-
-
-
-
-//public class SqlConnection {
-//
-//	public Statement state;
-//	public ResultSet rs;
-//	private String driver = "org.postgresql.Driver";
-//	private String caminho = "jdbc:postgresql://localhost:5432/RotasViagens";
-//	private String usuario = "postgres";
-//	private String senha = "2301@adson";
-//	public Connection conexao;
-//
-//
-//	public void Conexao(){
-//		try {
-//
-//			System.setProperty("jdbc.Drivers", driver);
-//			conexao = DriverManager.getConnection(caminho, usuario, senha);
-//		} catch (SQLException e) {
-//		}
-//
-//	}
-//
-//
-//	public void Desconectar(){
-//		try {
-//			conexao.close();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
-//
-//}

@@ -1,6 +1,7 @@
 package app;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import fachada.Fachada;
 import fachada.IFachada;
@@ -10,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sql.FillData;
 
 public class Main extends Application {
 
@@ -21,13 +23,15 @@ public class Main extends Application {
 	private static Scene loginScene;
 	private static Scene mainScene;
 
-	static IFachada fachada = Fachada.getInstance();
+	public static IFachada fachada = Fachada.getInstance();
 
 
 
 	@Override
-	public void start(Stage primaryStage) throws IOException {
+	public void start(Stage primaryStage) throws IOException, SQLException {
 
+
+		new FillData();
 
 		Pane login = FXMLLoader.load(getClass().getResource("/view/TelaLogin.fxml"));
 		loginScene = new Scene(login);

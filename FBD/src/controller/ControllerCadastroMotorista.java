@@ -11,14 +11,10 @@ public class ControllerCadastroMotorista {
     @FXML
     private JFXTextField textCep;
 
-    @FXML
-    private JFXTextField textCodigo;
 
     @FXML
     private JFXTextField textNome;
 
-    @FXML
-    private JFXTextField textApelido;
 
     @FXML
     private JFXTextField textEndereco;

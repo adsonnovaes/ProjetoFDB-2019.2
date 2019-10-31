@@ -33,6 +33,11 @@ public class Funcionario extends Pessoa{
 		this.id = id;
 	}
 
+	@Override
+	public String toString() {
+		return ("Id:"+getId()+"\nNome:"+getNome()+"\nCPF:"+getCpf()+"\nEmail:"+getEmail());
+	}
+
 
 
 
