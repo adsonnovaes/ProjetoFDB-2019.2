@@ -89,20 +89,23 @@ public class ControllerCadastroUsuario {
     		new ControllerException("Complete todos os campos corretamente.");
     	}else{
 
+    		Endereco end = new Endereco();
+    		end.setBairro(textBairro.getText());
+    		end.setCidade(textCidade.getText());
+    		end.setNum_casa(78);
+    		end.setRua(textRua.getText());
+    		end.setUf(textUf.getText());
+    		Main.fachada.salvarEndereco(end);
+
     		Funcionario fun = new Funcionario();
     		fun.setNome(textNome.getText());
     		fun.setEmail(textLogin.getText());
     		fun.setSenha(passSenha.getText());
     		fun.setCpf(textCpf.getText());
+    		fun.setIdentidade(888888);
     		int id = Main.fachada.SalvarFuncionario(fun);
 
-    		Endereco end = new Endereco();
-    		end.setBairro(textBairro.getText());
-    		end.setCidade(textCidade.getText());
-//    		end.setNum_casa(textnumCasa.getText());
-    		end.setRua(textRua.getText());
-    		end.setUf(textUf.getText());
-    		Main.fachada.salvarEndereco(end);
+
 
     	}
     }

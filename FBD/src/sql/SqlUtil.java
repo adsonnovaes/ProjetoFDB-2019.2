@@ -19,8 +19,8 @@ public class SqlUtil {
 
     public static class Endereco {
 
-        public static String INSERT_ALL = "INSERT INTO endereco (funcionario_id,rua,num_casa,bairro,cep,cidade,uf) "
-                + "VALUES (?,?,?,?,?,?,?) ";
+        public static String INSERT_ALL = "INSERT INTO rotasviagens.endereco (rua,num_casa,bairro,cidade,uf) "
+                + "VALUES (?,?,?,?,?) ";
     }
     public static class Viagem {
 

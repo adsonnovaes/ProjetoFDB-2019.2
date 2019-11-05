@@ -31,7 +31,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws IOException, SQLException {
 
 
-//		new FillData();
+		new FillData();
 
 		Pane login = FXMLLoader.load(getClass().getResource("/view/TelaLogin.fxml"));
 		loginScene = new Scene(login);

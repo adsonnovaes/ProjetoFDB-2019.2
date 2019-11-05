@@ -4,7 +4,6 @@ import java.sql.*;
 import java.util.List;
 
 import exception.DaoException;
-import model.Endereco;
 import model.Funcionario;
 import sql.SqlConnection;
 import sql.SqlUtil;
@@ -30,19 +29,19 @@ public class DaoFuncionario implements IDaoFuncionario{
             statement.setInt(3, funcionario.getIdentidade());
             statement.setString(4, funcionario.getEmail());
             statement.setString(5, funcionario.getSenha());
-            statement.setInt(6,5);
+            statement.setInt(6,1);
 
             System.out.println("Pos conexão");
             statement.execute();
 
             System.out.println("Salvou funcionario");
             int cod = 0;
-            ResultSet rs = statement.executeQuery("SELECT LAST_INSERT_ID();");
-            if(rs.next()){
-            	cod = rs.getInt("LAST_INSERT_ID();");
-            }
-
-            rs.close();
+//            ResultSet rs = statement.executeQuery("SELECT LAST_INSERT_ID();");
+//            if(rs.next()){
+//            	cod = rs.getInt("LAST_INSERT_ID();");
+//            }
+//
+//            rs.close();
 
 
             this.conexao.close();

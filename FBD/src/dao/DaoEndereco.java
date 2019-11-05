@@ -23,10 +23,9 @@ public class DaoEndereco implements IDaoEndereco{
 
             statement.setString(1, end.getRua());
             statement.setInt(2, end.getNum_casa());
-            statement.setInt(3, end.getCep());
-            statement.setString(4, end.getBairro());
-            statement.setString(5, end.getCidade());
-            statement.setString(6, end.getUf());
+            statement.setString(3, end.getBairro());
+            statement.setString(4, end.getCidade());
+            statement.setString(5, end.getUf());
 
             statement.execute();
             this.conexao.close();

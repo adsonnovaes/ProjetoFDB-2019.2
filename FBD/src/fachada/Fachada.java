@@ -15,7 +15,10 @@ import business.IBusinessMotorista;
 import business.IBusinessRota;
 import business.IBusinessVeiculo;
 import business.IBusinessViagem;
+import dao.DaoEndereco;
+import dao.IDaoEndereco;
 import exception.BusinessException;
+import exception.DaoException;
 import model.Carga;
 import model.Endereco;
 import model.Funcionario;
@@ -33,6 +36,7 @@ public class Fachada implements IFachada{
 	private IBusinessVeiculo businessVeiculo;
 	private IBusinessMotorista businessMotorista;
 	private IBusinessFuncionario businessFuncionario;
+	private IDaoEndereco daoFuncionario;
 
 	private static Fachada fachada;
 
@@ -52,6 +56,7 @@ public class Fachada implements IFachada{
         businessVeiculo = new BusinessVeiculo();
         businessMotorista = new BusinessMotorista();
         businessFuncionario = new BusinessFuncionario();
+        daoFuncionario = new DaoEndereco();
     }
 
 
@@ -85,6 +90,11 @@ public class Fachada implements IFachada{
 //	Endereço
 	@Override
 	public void salvarEndereco(Endereco end) throws BusinessException {
+		try {
+			daoFuncionario.salvarEndereco(end);
+		} catch (DaoException e) {
+			e.printStackTrace();
+		}
 
 	}
 
