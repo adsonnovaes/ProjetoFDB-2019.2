@@ -11,10 +11,10 @@ public class DaoEndereco implements IDaoEndereco{
 
     private Connection conexao;
     private PreparedStatement statement;
-    private ResultSet result;
+    private ResultSet rs;
 
 	@Override
-	public void salvarEndereco(Endereco end) throws DaoException {
+	public int salvarEndereco(Endereco end) throws DaoException {
 
         try {
 
@@ -28,11 +28,20 @@ public class DaoEndereco implements IDaoEndereco{
             statement.setString(5, end.getUf());
 
             statement.execute();
+
+
+            String sql = "SELECT MAX(id_endereco) as id FROM rotasviagens.endereco";
+            PreparedStatement stmt = (PreparedStatement) conexao.prepareStatement(sql);
+            this.rs = stmt.executeQuery();
+            rs.next();
+            int lastId = rs.getInt("id");
+
             this.conexao.close();
+            return lastId;
 
         } catch (SQLException ex) {
             ex.printStackTrace();
-            throw new DaoException("Erro ao salvar o endereço");
+            throw new DaoException("Erro ao salvar o endereço!");
         }
 
 
@@ -48,35 +57,5 @@ public class DaoEndereco implements IDaoEndereco{
 	public void buscarEnderecoId(int id) throws DaoException {
 
 	}
-
-
-	@Override
-	public int getCurrentValorTabela(String nomeTabela) throws DaoException {
-
-        try {
-
-            this.conexao = SqlConnection.creatConnection();
-            this.statement = conexao.prepareStatement("select id from " + nomeTabela + " order by id desc limit 1");
-
-            result = this.statement.executeQuery();
-            int id;
-
-            if (result.next()) {
-                id = result.getInt(1);
-
-            } else {
-                throw new DaoException("Não há registro nessa tabela");
-            }
-
-            this.conexao.close();
-            return id;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            throw new DaoException("PROBLEMA AO CONSULTAR " + nomeTabela + " - Contate o ADM");
-        }
-	}
-
-
 
 }

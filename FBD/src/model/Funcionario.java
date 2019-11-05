@@ -6,8 +6,17 @@ public class Funcionario extends Pessoa{
 
 	private String email;
 	private String senha;
+	private Endereco end;
 
 
+
+	public Endereco getEnd() {
+		return end;
+	}
+
+	public void setEnd(Endereco end) {
+		this.end = end;
+	}
 
 	public int getId() {
 		return id;

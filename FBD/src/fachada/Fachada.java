@@ -36,7 +36,7 @@ public class Fachada implements IFachada{
 	private IBusinessVeiculo businessVeiculo;
 	private IBusinessMotorista businessMotorista;
 	private IBusinessFuncionario businessFuncionario;
-	private IDaoEndereco daoFuncionario;
+	private IDaoEndereco daoEndereco;
 
 	private static Fachada fachada;
 
@@ -56,7 +56,7 @@ public class Fachada implements IFachada{
         businessVeiculo = new BusinessVeiculo();
         businessMotorista = new BusinessMotorista();
         businessFuncionario = new BusinessFuncionario();
-        daoFuncionario = new DaoEndereco();
+        daoEndereco = new DaoEndereco();
     }
 
 
@@ -91,7 +91,7 @@ public class Fachada implements IFachada{
 	@Override
 	public void salvarEndereco(Endereco end) throws BusinessException {
 		try {
-			daoFuncionario.salvarEndereco(end);
+			daoEndereco.salvarEndereco(end);
 		} catch (DaoException e) {
 			e.printStackTrace();
 		}
@@ -116,8 +116,8 @@ public class Fachada implements IFachada{
 
 //	Funcionario
 	@Override
-	public int SalvarFuncionario(Funcionario funcionario) throws BusinessException {
-		return this.businessFuncionario.SalvarFuncionario(funcionario);
+	public void SalvarFuncionario(Funcionario funcionario) throws BusinessException {
+		this.businessFuncionario.SalvarFuncionario(funcionario);
 
 	}
 

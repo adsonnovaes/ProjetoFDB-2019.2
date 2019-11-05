@@ -12,13 +12,13 @@ public class DaoFuncionario implements IDaoFuncionario{
 
     private Connection conexao;
     private PreparedStatement statement;
+    private IDaoEndereco daoEnd = new DaoEndereco();
 
 	@Override
-	public int SalvarFuncionario(Funcionario funcionario) throws DaoException {
+	public void SalvarFuncionario(Funcionario funcionario) throws DaoException {
 
 		try {
-			System.out.println("Inicio");
-
+			int id_endereco = daoEnd.salvarEndereco(funcionario.getEnd());
 
             this.conexao = SqlConnection.creatConnection();
             this.statement = conexao.prepareStatement(SqlUtil.Funcioario.INSERT_ALL);
@@ -29,24 +29,11 @@ public class DaoFuncionario implements IDaoFuncionario{
             statement.setInt(3, funcionario.getIdentidade());
             statement.setString(4, funcionario.getEmail());
             statement.setString(5, funcionario.getSenha());
-            statement.setInt(6,1);
+            statement.setInt(6,id_endereco);
 
-            System.out.println("Pos conexão");
             statement.execute();
 
-            System.out.println("Salvou funcionario");
-            int cod = 0;
-//            ResultSet rs = statement.executeQuery("SELECT LAST_INSERT_ID();");
-//            if(rs.next()){
-//            	cod = rs.getInt("LAST_INSERT_ID();");
-//            }
-//
-//            rs.close();
-
-
             this.conexao.close();
-            System.out.println(cod);
-            return cod;
 
 
         } catch (Exception ex) {

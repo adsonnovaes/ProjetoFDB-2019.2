@@ -18,10 +18,10 @@ public class BusinessFuncionario implements IBusinessFuncionario{
 	}
 
 	@Override
-	public int SalvarFuncionario(Funcionario funcionario) throws BusinessException {
+	public void SalvarFuncionario(Funcionario funcionario) throws BusinessException {
 		try {
 
-			return this.daoFuncionario.SalvarFuncionario(funcionario);
+			this.daoFuncionario.SalvarFuncionario(funcionario);
 
 		} catch (DaoException e) {
 			throw new BusinessException("Erro na hora de salvar");
