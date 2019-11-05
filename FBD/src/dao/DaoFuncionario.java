@@ -1,9 +1,12 @@
 package dao;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import exception.DaoException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.Funcionario;
 import sql.SqlConnection;
 import sql.SqlUtil;
@@ -12,12 +15,14 @@ public class DaoFuncionario implements IDaoFuncionario{
 
     private Connection conexao;
     private PreparedStatement statement;
+    private ResultSet rs;
     private IDaoEndereco daoEnd = new DaoEndereco();
 
 	@Override
 	public void SalvarFuncionario(Funcionario funcionario) throws DaoException {
 
 		try {
+
 			int id_endereco = daoEnd.salvarEndereco(funcionario.getEnd());
 
             this.conexao = SqlConnection.creatConnection();
@@ -56,7 +61,41 @@ public class DaoFuncionario implements IDaoFuncionario{
 
 	@Override
 	public List<Funcionario> buscaGeralFuncionario(String i) {
+
 		return null;
+	}
+
+	@Override
+	public ObservableList<Funcionario> getAllFuncionarios() {
+		List<Funcionario> funcionarios = new ArrayList<>();
+
+		try {
+
+			this.conexao = SqlConnection.creatConnection();
+			this.statement = conexao.prepareStatement(SqlUtil.Funcioario.GETALL);
+			this.rs = statement.executeQuery();
+
+			while(rs.next()){
+
+				Funcionario funcionario = new Funcionario();
+
+				funcionario.setNome(rs.getString("nome"));
+				funcionario.setCpf(rs.getString("cpf"));
+				funcionario.setId_endereco(rs.getInt("endereco_id"));
+				funcionario.setIdentidade(rs.getInt("identidade"));
+				funcionario.setEmail(rs.getString("email"));
+				funcionarios.add(funcionario);
+			}
+
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+
+		ObservableList<Funcionario> obs = FXCollections.observableList(funcionarios);
+		return obs;
 	}
 
 

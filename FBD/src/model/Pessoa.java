@@ -3,10 +3,10 @@ package model;
 public abstract class Pessoa {
 
 
-	String nome;
-	String cpf;
-	int id_endereco;
-	int identidade;
+	private String nome;
+	private String cpf;
+	private int id_endereco;
+	private int identidade;
 
 	public String getNome() {
 		return nome;

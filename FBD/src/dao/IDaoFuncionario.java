@@ -3,6 +3,7 @@ package dao;
 import java.util.List;
 
 import exception.DaoException;
+import javafx.collections.ObservableList;
 import model.Funcionario;
 
 public interface IDaoFuncionario {
@@ -11,5 +12,6 @@ public interface IDaoFuncionario {
 	public Funcionario EditarFuncionario(Funcionario funcionario) throws DaoException;
 	public Funcionario BuscarFuncionarioID(int id) throws DaoException;
 	public List<Funcionario> buscaGeralFuncionario(String i);
+	public ObservableList<Funcionario> getAllFuncionarios() ;
 
 }

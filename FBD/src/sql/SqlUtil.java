@@ -15,6 +15,8 @@ public class SqlUtil {
 
         public static String EDITAR_ALL = "update funcionario set nome =?, cpf=?, .... WHERE id = ?";
 
+        public static String GETALL = "SELECT nome,cpf,endereco_id,identidade,email FROM rotasviagens.funcionario;";
+
     }
 
     public static class Endereco {
@@ -37,8 +39,10 @@ public class SqlUtil {
 
     }
 
-    private SqlUtil() {
+    public static class Caixa{
 
+    	public static final String BUSCA = "select ";
     }
+
 
 }
