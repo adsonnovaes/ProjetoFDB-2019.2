@@ -73,7 +73,7 @@
                         <Insets right="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="btnGenFuncionarios" alignment="BASELINE_LEFT" defaultButton="true" focusTraversable="false" graphicTextGap="30.0" mnemonicParsing="false" onAction="#ShowCarga" prefHeight="41.0" prefWidth="257.0" styleClass="options-btn" text="Gerenciar Funcionarios" textFill="WHITE">
+                  <Button fx:id="btnGenFuncionarios" alignment="BASELINE_LEFT" defaultButton="true" focusTraversable="false" graphicTextGap="30.0" mnemonicParsing="false" onAction="#ShowFuncionarios" prefHeight="41.0" prefWidth="257.0" styleClass="options-btn" text="Gerenciar Funcionarios" textFill="WHITE">
                      <font>
                         <Font name="Verdana" size="12.0" />
                      </font>
@@ -95,7 +95,7 @@
                         <Insets right="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="btnGenViagens" alignment="BASELINE_LEFT" defaultButton="true" focusTraversable="false" graphicTextGap="30.0" mnemonicParsing="false" onAction="#ShowViagem" prefHeight="33.0" prefWidth="250.0" styleClass="options-btn" text="Viagens" textFill="WHITE">
+                  <Button fx:id="btnGenViagens" alignment="BASELINE_LEFT" defaultButton="true" focusTraversable="false" graphicTextGap="30.0" mnemonicParsing="false" onAction="#ShowViagem" prefHeight="33.0" prefWidth="250.0" styleClass="options-btn" text="Gerenciar Viagens" textFill="WHITE">
                      <font>
                         <Font name="Verdana" size="12.0" />
                      </font>
@@ -105,6 +105,22 @@
                      <VBox.margin>
                         <Insets right="20.0" />
                      </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnGenMotorista" alignment="BASELINE_LEFT" defaultButton="true" focusTraversable="false" graphicTextGap="30.0" mnemonicParsing="false" onAction="#ShowMotorista" prefHeight="41.0" prefWidth="272.0" styleClass="options-btn" text="Gerenciar Motorista" textFill="WHITE">
+                     <font>
+                        <Font name="Verdana" size="12.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="USERS" size="18" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnGenCarga" alignment="BASELINE_LEFT" defaultButton="true" focusTraversable="false" graphicTextGap="30.0" mnemonicParsing="false" onAction="#ShowCarga" prefHeight="41.0" prefWidth="272.0" styleClass="options-btn" text="Gerenciar Carga" textFill="WHITE">
+                     <font>
+                        <Font name="Verdana" size="12.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="ARCHIVE" size="18" />
+                     </graphic>
                   </Button>
                   <Button fx:id="btnCaixa" alignment="BASELINE_LEFT" defaultButton="true" focusTraversable="false" graphicTextGap="28.0" mnemonicParsing="false" onAction="#ShowCaixa" prefHeight="33.0" prefWidth="250.0" styleClass="options-btn" text="Caixa" textFill="WHITE">
                      <font>

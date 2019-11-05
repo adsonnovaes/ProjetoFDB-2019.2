@@ -19,6 +19,8 @@ public class DaoFuncionario implements IDaoFuncionario{
 
 		try {
 			System.out.println("Inicio");
+
+
             this.conexao = SqlConnection.creatConnection();
             this.statement = conexao.prepareStatement(SqlUtil.Funcioario.INSERT_ALL);
 
@@ -28,6 +30,7 @@ public class DaoFuncionario implements IDaoFuncionario{
             statement.setInt(3, funcionario.getIdentidade());
             statement.setString(4, funcionario.getEmail());
             statement.setString(5, funcionario.getSenha());
+            statement.setInt(6,5);
 
             System.out.println("Pos conexão");
             statement.execute();

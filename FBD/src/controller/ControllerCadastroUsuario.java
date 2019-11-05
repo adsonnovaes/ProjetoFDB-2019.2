@@ -47,11 +47,36 @@ public class ControllerCadastroUsuario {
     private JFXTextField textCpf;
 
     @FXML
-    void ShowCancelar(ActionEvent event) {
+    private JFXTextField textRua;
+
+    @FXML
+    private JFXTextField textCidade;
+
+    @FXML
+    private JFXTextField textBairro;
+
+    @FXML
+    private JFXTextField textnumCasa;
+
+    @FXML
+    private JFXTextField textUf;
+
+    @FXML
+    void ShowCancelar(ActionEvent event) throws IOException {
+
     	textLogin.clear();
     	textCpf.clear();
     	passSenha.clear();
     	textNome.clear();
+    	textRua.clear();
+    	textCidade.clear();
+    	textnumCasa.clear();
+    	textUf.clear();
+
+		Pane ap = FXMLLoader.load(getClass().getResource("/view/TelaLogin.fxml"));
+    	Content.getChildren().removeAll();
+    	Content.getChildren().setAll(ap);
+    	Content.toFront();
 
 
     }
@@ -68,16 +93,15 @@ public class ControllerCadastroUsuario {
     		fun.setNome(textNome.getText());
     		fun.setEmail(textLogin.getText());
     		fun.setSenha(passSenha.getText());
+    		fun.setCpf(textCpf.getText());
     		int id = Main.fachada.SalvarFuncionario(fun);
 
     		Endereco end = new Endereco();
-    		end.setBairro("sdgfhgkj");
-    		end.setCep(23465768);
-    		end.setCidade("tsydtufygb");
-    		end.setId(id);
-    		end.setNum_casa(56);
-    		end.setRua("ztydufgkb");
-    		end.setUf("yu");
+    		end.setBairro(textBairro.getText());
+    		end.setCidade(textCidade.getText());
+//    		end.setNum_casa(textnumCasa.getText());
+    		end.setRua(textRua.getText());
+    		end.setUf(textUf.getText());
     		Main.fachada.salvarEndereco(end);
 
     	}
@@ -85,11 +109,7 @@ public class ControllerCadastroUsuario {
 
     @FXML
     void ShowRetornar(ActionEvent event) throws IOException {
-		Pane ap = FXMLLoader.load(getClass().getResource("/view/TelaLogin.fxml"));
 
-    	Content.getChildren().removeAll();
-    	Content.getChildren().setAll(ap);
-    	Content.toFront();
 
     }
 

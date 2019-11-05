@@ -5,7 +5,7 @@ public abstract class Pessoa {
 
 	String nome;
 	String cpf;
-	Endereco end;
+	int id_endereco;
 	int identidade;
 
 	public String getNome() {
@@ -20,11 +20,11 @@ public abstract class Pessoa {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Endereco getEnd() {
-		return end;
+	public int getId_endereco() {
+		return id_endereco;
 	}
-	public void setEnd(Endereco end) {
-		this.end = end;
+	public void setId_endereco(int id_endereco) {
+		this.id_endereco = id_endereco;
 	}
 	public int getIdentidade() {
 		return identidade;
@@ -32,7 +32,6 @@ public abstract class Pessoa {
 	public void setIdentidade(int identidade) {
 		this.identidade = identidade;
 	}
-
 
 
 }

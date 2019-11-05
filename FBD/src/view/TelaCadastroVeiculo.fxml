@@ -18,96 +18,66 @@
                   <Font name="System Bold" size="23.0" />
                </font>
             </Label>
-            <Label layoutX="60.0" layoutY="257.0" text="Marca/Modelo:" textFill="#f6f5f5">
+            <Label layoutX="59.0" layoutY="292.0" text="Marca/Modelo:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textMarca" layoutX="49.0" layoutY="279.0" maxWidth="159.0" minWidth="159.0" prefHeight="31.0" prefWidth="159.0" promptText="Exemplo: Merecedez benz" unFocusColor="#fdfafa" />
-            <Label layoutX="61.0" layoutY="158.0" text="Placa:" textFill="#f6f5f5">
+            <JFXTextField fx:id="textMarca" layoutX="48.0" layoutY="314.0" maxWidth="159.0" minWidth="159.0" prefHeight="31.0" prefWidth="159.0" promptText="Exemplo: Merecedez benz" unFocusColor="#fdfafa" />
+            <Label layoutX="60.0" layoutY="184.0" text="Placa:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textPlaca" layoutX="50.0" layoutY="180.0" maxWidth="149.0" minWidth="112.0" prefHeight="43.0" prefWidth="149.0" promptText="Exemplo: HZI9999" unFocusColor="#fdfafa" />
-            <Label layoutX="268.0" layoutY="161.0" text="UF:" textFill="#f6f5f5">
+            <JFXTextField fx:id="textPlaca" layoutX="49.0" layoutY="206.0" maxWidth="149.0" minWidth="112.0" prefHeight="43.0" prefWidth="149.0" promptText="Exemplo: HZI9999" unFocusColor="#fdfafa" />
+            <Label layoutX="267.0" layoutY="187.0" text="UF:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textUf" layoutX="256.0" layoutY="182.0" maxWidth="120.0" minWidth="83.0" prefHeight="31.0" prefWidth="112.0" promptText="Exemplo: PE" unFocusColor="#fdfafa" />
-            <Label layoutX="434.0" layoutY="161.0" text="Cidade:" textFill="#f6f5f5">
+            <JFXTextField fx:id="textUf" layoutX="255.0" layoutY="208.0" maxWidth="120.0" minWidth="83.0" prefHeight="31.0" prefWidth="112.0" promptText="Exemplo: PE" unFocusColor="#fdfafa" />
+            <Label layoutX="433.0" layoutY="182.0" text="Tipo (Carroceria):" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textCidade" layoutX="422.0" layoutY="183.0" maxWidth="177.0" minWidth="119.0" prefHeight="43.0" prefWidth="170.0" promptText="Exemplo: Petrolândia" unFocusColor="#fdfafa" />
-            <Label layoutX="632.0" layoutY="158.0" text="Tipo (Carroceria):" textFill="#f6f5f5">
+            <JFXComboBox fx:id="comboTipoCarroceria" editable="true" layoutX="429.0" layoutY="195.0" prefHeight="47.0" prefWidth="146.0" promptText="Escolha o tipo" />
+            <Label layoutX="265.0" layoutY="292.0" text="Ano:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXComboBox fx:id="comboTipoCarroceria" editable="true" layoutX="628.0" layoutY="171.0" prefHeight="47.0" prefWidth="146.0" promptText="Escolha o tipo" />
-            <Label layoutX="267.0" layoutY="257.0" text="Ano:" textFill="#f6f5f5">
+            <JFXTextField fx:id="textAno" layoutX="254.0" layoutY="314.0" maxWidth="130.0" minWidth="112.0" prefHeight="43.0" prefWidth="130.0" promptText="Exemplo: 1990" unFocusColor="#fdfafa" />
+            <Label layoutX="266.0" layoutY="396.0" text="Km rodado:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textAno" layoutX="255.0" layoutY="279.0" maxWidth="130.0" minWidth="112.0" prefHeight="43.0" prefWidth="130.0" promptText="Exemplo: 1990" unFocusColor="#fdfafa" />
-            <Label layoutX="267.0" layoutY="353.0" text="Km rodado:" textFill="#f6f5f5">
+            <JFXTextField fx:id="textKm" layoutX="254.0" layoutY="418.0" maxWidth="137.0" minWidth="112.0" prefHeight="43.0" prefWidth="137.0" promptText="Exemplo: 54333" unFocusColor="#fdfafa" />
+            <Label layoutX="433.0" layoutY="292.0" text="Cor:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textKm" layoutX="255.0" layoutY="375.0" maxWidth="137.0" minWidth="112.0" prefHeight="43.0" prefWidth="137.0" promptText="Exemplo: 54333" unFocusColor="#fdfafa" />
-            <Label layoutX="435.0" layoutY="257.0" text="Cor:" textFill="#f6f5f5">
+            <JFXTextField fx:id="textCor" layoutX="421.0" layoutY="314.0" maxWidth="130.0" minWidth="112.0" prefHeight="31.0" prefWidth="130.0" promptText="Exemplo: Azul" unFocusColor="#fdfafa" />
+            <Label layoutX="637.0" layoutY="184.0" text="Tipo (Veículo):" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textCor" layoutX="423.0" layoutY="279.0" maxWidth="130.0" minWidth="112.0" prefHeight="31.0" prefWidth="130.0" promptText="Exemplo: Azul" unFocusColor="#fdfafa" />
-            <Label layoutX="632.0" layoutY="256.0" text="Tipo (Veículo):" textFill="#f6f5f5">
+            <JFXComboBox fx:id="comboTipoVeiculo" editable="true" layoutX="633.0" layoutY="194.0" prefHeight="47.0" prefWidth="146.0" promptText="Escolha o tipo" />
+            <Label layoutX="61.0" layoutY="396.0" text="Código do Renavam:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXComboBox fx:id="comboTipoVeiculo" editable="true" layoutX="628.0" layoutY="266.0" prefHeight="47.0" prefWidth="146.0" promptText="Escolha o tipo" />
-            <Label layoutX="62.0" layoutY="353.0" text="Código do Renavam:" textFill="#f6f5f5">
+            <JFXTextField fx:id="textRenavam" layoutX="50.0" layoutY="418.0" maxWidth="159.0" minWidth="159.0" prefHeight="31.0" prefWidth="159.0" promptText="Exemplo: 123234343499" unFocusColor="#fdfafa" />
+            <Label layoutX="429.0" layoutY="396.0" text="Capacidade (Kg):" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textRenavam" layoutX="51.0" layoutY="375.0" maxWidth="159.0" minWidth="159.0" prefHeight="31.0" prefWidth="159.0" promptText="Exemplo: 123234343499" unFocusColor="#fdfafa" />
-            <Label layoutX="436.0" layoutY="353.0" text="RNTRC:" textFill="#f6f5f5">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <JFXTextField fx:id="textRntrc" layoutX="424.0" layoutY="375.0" maxWidth="149.0" minWidth="112.0" prefHeight="43.0" prefWidth="149.0" promptText="Exemplo: 324123" unFocusColor="#fdfafa" />
-            <Label layoutX="63.0" layoutY="442.0" text="Capacidade (Kg):" textFill="#f6f5f5">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <JFXTextField fx:id="textCapacidadeKg" layoutX="51.0" layoutY="464.0" maxWidth="137.0" minWidth="112.0" prefHeight="43.0" prefWidth="137.0" promptText="Exemplo: 40000" unFocusColor="#fdfafa" />
-            <Label layoutX="267.0" layoutY="445.0" text="Tara (Kg):" textFill="#f6f5f5">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <JFXTextField fx:id="textTara" layoutX="256.0" layoutY="468.0" maxWidth="137.0" minWidth="112.0" prefHeight="43.0" prefWidth="137.0" promptText="Exemplo: 14000" unFocusColor="#fdfafa" />
-            <Label layoutX="436.0" layoutY="444.0" text="Capacidade (m³):" textFill="#f6f5f5">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <JFXTextField fx:id="textCapacidadeCub" layoutX="425.0" layoutY="467.0" maxWidth="120.0" minWidth="112.0" prefHeight="31.0" prefWidth="112.0" promptText="Exemplo: 23" unFocusColor="#fdfafa" />
-            <Label layoutX="629.0" layoutY="445.0" text="CIOT:" textFill="#f6f5f5">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <JFXTextField fx:id="textCiot" layoutX="618.0" layoutY="467.0" maxWidth="137.0" minWidth="112.0" prefHeight="31.0" prefWidth="137.0" promptText="Exemplo: 3244" unFocusColor="#fdfafa" />
+            <JFXTextField fx:id="textCapacidadeKg" layoutX="417.0" layoutY="418.0" maxWidth="137.0" minWidth="112.0" prefHeight="43.0" prefWidth="137.0" promptText="Exemplo: 40000" unFocusColor="#fdfafa" />
             <HBox layoutX="579.0" layoutY="612.0" spacing="40.0">
                <children>
                   <JFXButton fx:id="btnConfirmar" onAction="#ShowConfirmarCadastro" ripplerFill="#f4f3f3" text="Confirmar" textFill="#efebeb">

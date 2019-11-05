@@ -1,41 +1,63 @@
 package model;
 
-import java.util.ArrayList;
 
 public class Rota {
-	
+
 	int id;
-	
-	Cidade origem;
-	Cidade destino;
-	float km;
-	public static ArrayList<Cidade> paradas = new ArrayList<>();
-	
-	
+
+	private String origem;
+	private String destino;
+	private float kms;
+	private int combustivel;
+	private int tempoPrevisto;
+	private String descricao;
+
+
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Cidade getOrigem() {
+	public String getOrigem() {
 		return origem;
 	}
-	public void setOrigem(Cidade origem) {
+	public void setOrigem(String origem) {
 		this.origem = origem;
 	}
-	public Cidade getDestino() {
+	public String getDestino() {
 		return destino;
 	}
-	public void setDestino(Cidade destino) {
+	public void setDestino(String destino) {
 		this.destino = destino;
 	}
-	public static ArrayList<Cidade> getParadas() {
-		return paradas;
+	public float getKm() {
+		return kms;
 	}
-	public static void setParadas(ArrayList<Cidade> paradas) {
-		Rota.paradas = paradas;
+	public void setKm(float km) {
+		this.kms = km;
 	}
+	public float getCombustivel() {
+		return combustivel;
+	}
+	public void setCombustivel(int combustivel) {
+		this.combustivel = combustivel;
+	}
+	public int getTempoPrevisto() {
+		return tempoPrevisto;
+	}
+	public void setTempoPrevisto(int tempoPrevisto) {
+		this.tempoPrevisto = tempoPrevisto;
+	}
+
+
+
 
 
 }

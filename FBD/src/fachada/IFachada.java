@@ -4,7 +4,6 @@ import java.util.List;
 
 import exception.BusinessException;
 import model.Carga;
-import model.Cidade;
 import model.Endereco;
 import model.Funcionario;
 import model.Motorista;
@@ -20,12 +19,6 @@ public interface IFachada {
 	public Carga BuscarCargaID(int id) throws BusinessException;
 	public Carga BuscarCargaExpecifica(String carga);
 	public List<Carga> buscaAllCarga(String i);
-
-//	Cidade
-	public void salvarCidade(Cidade cidade) throws BusinessException;
-	public void editarCidade(Cidade cidade) throws BusinessException;
-	public Cidade buscarCidadeId(int id) throws BusinessException;
-	public List<Cidade> buscaGeralCidade(String busca) throws BusinessException;
 
 //	Endereço
 	public void salvarEndereco(Endereco end) throws BusinessException;

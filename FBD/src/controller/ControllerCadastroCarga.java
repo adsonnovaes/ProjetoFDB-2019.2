@@ -8,10 +8,12 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
+import exception.ControllerException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import mensagem.Mensagem;
 
 public class ControllerCadastroCarga implements Initializable{
 
@@ -47,6 +49,13 @@ public class ControllerCadastroCarga implements Initializable{
 
     @FXML
     void ShowCancelarCadastro(ActionEvent event) {
+    	textValorCarga.clear();
+    	textPesoTotal.clear();
+    	txtQuantidade.clear();
+    	areaDescricao.clear();
+    	new Mensagem("Cancelado com sucesso!");
+
+
 
     }
 

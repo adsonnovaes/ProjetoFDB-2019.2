@@ -2,32 +2,19 @@ package controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
-import java.util.Timer;
 
 import com.jfoenix.controls.JFXButton;
 
-import app.Main;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.util.Duration;
 import util.Util;
 
 public class ControllerDrawer implements Initializable{
@@ -79,6 +66,12 @@ public class ControllerDrawer implements Initializable{
 
     @FXML
     private Button btnGenViagens;
+
+    @FXML
+    private Button btnGenMotorista;
+
+    @FXML
+    private Button btnGenCarga;
 
     @FXML
     private Button btnCaixa;
@@ -157,7 +150,19 @@ public class ControllerDrawer implements Initializable{
     }
 
     @FXML
+    void ShowFuncionarios(ActionEvent event) throws IOException {
+    	Scene scene = (Scene) ((Node) event.getSource()).getScene();
+    	Util.LoadWindow(getClass().getResource("/view/TelaGerenciarFuncionarios.fxml"), scene, "x");
+
+    }
+
+    @FXML
     void ShowHistorico(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ShowMotorista(ActionEvent event) {
 
     }
 

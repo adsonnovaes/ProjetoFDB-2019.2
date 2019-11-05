@@ -1,6 +1,7 @@
 package controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDatePicker;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,10 +12,10 @@ import model.Caixa;
 public class ControllerCaixa {
 
     @FXML
-    private JFXButton btnConfirmar;
+    private JFXButton btnVeiculo;
 
     @FXML
-    private JFXButton btnCancelar;
+    private JFXButton btnRotas;
 
     @FXML
     private JFXButton btnCargas;
@@ -32,22 +33,31 @@ public class ControllerCaixa {
     private TableColumn<Caixa, String> colCarga;
 
     @FXML
-    private TableColumn<Caixa, String> colCombustivel;
+    private TableColumn<Caixa, String> colValorTotal;
 
     @FXML
-    void ShowCancelarCadastro(ActionEvent event) {
-
-    }
+    private JFXDatePicker dateInicial;
 
     @FXML
-    void ShowConfirmarCadastro(ActionEvent event) {
-
-    }
-
+    private JFXDatePicker dateFinal;
 
     @FXML
     void ShowCargas(ActionEvent event) {
 
     }
 
+    @FXML
+    void ShowRotas(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ShowVeiculos(ActionEvent event) {
+
+    }
+
 }
+
+
+
+

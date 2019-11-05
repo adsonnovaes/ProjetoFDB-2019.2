@@ -17,7 +17,6 @@ import business.IBusinessVeiculo;
 import business.IBusinessViagem;
 import exception.BusinessException;
 import model.Carga;
-import model.Cidade;
 import model.Endereco;
 import model.Funcionario;
 import model.Motorista;
@@ -82,29 +81,6 @@ public class Fachada implements IFachada{
 	public List<Carga> buscaAllCarga(String i) {
 		return null;
 	}
-
-//  Cidade
-
-	@Override
-	public void salvarCidade(Cidade cidade) throws BusinessException {
-
-	}
-
-	@Override
-	public void editarCidade(Cidade cidade) throws BusinessException {
-
-	}
-
-	@Override
-	public Cidade buscarCidadeId(int id) throws BusinessException {
-		return null;
-	}
-
-	@Override
-	public List<Cidade> buscaGeralCidade(String busca) throws BusinessException {
-		return null;
-	}
-
 
 //	Endereço
 	@Override

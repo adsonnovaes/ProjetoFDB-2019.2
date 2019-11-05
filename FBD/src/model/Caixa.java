@@ -4,7 +4,7 @@ public class Caixa {
 
 	private Veiculo veiculo;
 	private Motorista motorista;
-	private float combustivel;
+	private float valorTotal;
 	private Carga carga;
 
 
@@ -21,11 +21,11 @@ public class Caixa {
 	public void setMotorista(Motorista motorista) {
 		this.motorista = motorista;
 	}
-	public float getCombustivel() {
-		return combustivel;
+	public float getValorTotal() {
+		return valorTotal;
 	}
-	public void setCombustivel(float combustivel) {
-		this.combustivel = combustivel;
+	public void setValorTotal(float valorTotal) {
+		this.valorTotal = valorTotal;
 	}
 	public Carga getCarga() {
 		return carga;

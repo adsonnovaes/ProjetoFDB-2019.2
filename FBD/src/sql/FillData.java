@@ -18,7 +18,8 @@ public class FillData {
 			con = SqlConnection.creatConnection();
 			ScriptRunner script = new ScriptRunner(con, false, false);
 
-			BufferedReader in = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/createData.sql"),"UTF8"));
+			BufferedReader in = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/create_db.log"),"UTF8"));
+			System.out.println("voltei");
 			script.runScript(in);
 		}
 	}
