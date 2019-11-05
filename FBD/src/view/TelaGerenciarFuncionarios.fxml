@@ -19,7 +19,7 @@
                   <Font name="System Bold" size="23.0" />
                </font>
             </Label>
-            <HBox layoutX="579.0" layoutY="612.0" spacing="40.0">
+            <HBox layoutX="553.0" layoutY="611.0" spacing="40.0">
                <children>
                   <JFXButton fx:id="btnEditar" onAction="#ShowSalvar" ripplerFill="#f4f3f3" text="Editar" textFill="#efebeb">
                      <font>
@@ -31,15 +31,21 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </JFXButton>
+                  <JFXButton fx:id="btnDeletar" onAction="#ShowDelete" ripplerFill="#982b2b" text="Deletar" textFill="#efebeb">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
                </children>
             </HBox>
             <TableView fx:id="tabGerenFuncionarios" layoutX="61.0" layoutY="136.0" prefHeight="446.0" prefWidth="1067.0">
               <columns>
-                <TableColumn fx:id="colNome" prefWidth="188.0" text="Nome" />
-                <TableColumn fx:id="colCpf" prefWidth="227.0" text="Cpf" />
-                  <TableColumn fx:id="colEndereco" prefWidth="185.66668701171875" text="Endereço" />
-                  <TableColumn fx:id="colIdentidade" prefWidth="242.66668701171875" text="Identidade" />
-                  <TableColumn fx:id="colEmail" prefWidth="218.333251953125" text="Email" />
+                  <TableColumn fx:id="colId" prefWidth="103.00003051757812" text="Id" />
+                <TableColumn fx:id="colNome" prefWidth="257.0" text="Nome" />
+                <TableColumn fx:id="colCpf" prefWidth="209.0" text="Cpf" />
+                  <TableColumn fx:id="colEndereco" prefWidth="109.6666259765625" text="Endereço" />
+                  <TableColumn fx:id="colIdentidade" prefWidth="160.3333740234375" text="Identidade" />
+                  <TableColumn fx:id="colEmail" prefWidth="230.33331298828125" text="Email" />
               </columns>
             </TableView>
             <HBox layoutX="54.0" layoutY="83.0" prefHeight="47.0" prefWidth="642.0">

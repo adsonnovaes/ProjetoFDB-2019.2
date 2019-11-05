@@ -12,6 +12,7 @@ public interface IDaoFuncionario {
 	public Funcionario EditarFuncionario(Funcionario funcionario) throws DaoException;
 	public Funcionario BuscarFuncionarioID(int id) throws DaoException;
 	public List<Funcionario> buscaGeralFuncionario(String i);
+	public void DeleteFuncionario(int id);
 	public ObservableList<Funcionario> getAllFuncionarios() ;
 
 }

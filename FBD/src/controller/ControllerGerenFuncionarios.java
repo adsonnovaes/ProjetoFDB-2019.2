@@ -1,12 +1,12 @@
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
-import app.Main;
 import dao.DaoFuncionario;
 import dao.IDaoFuncionario;
 import javafx.collections.FXCollections;
@@ -16,11 +16,15 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import mensagem.Mensagem;
 import model.Funcionario;
+import util.Util;
 
 public class ControllerGerenFuncionarios implements Initializable{
 
@@ -31,10 +35,16 @@ public class ControllerGerenFuncionarios implements Initializable{
     private JFXButton btnSalvar;
 
     @FXML
+    private JFXButton btnDeletar;
+
+    @FXML
     private JFXTextField textSearch;
 
     @FXML
     private TableView<Funcionario> tabGerenFuncionarios;
+
+    @FXML
+    private TableColumn<Funcionario, String> colId;
 
     @FXML
     private TableColumn<Funcionario, String> colNome;
@@ -58,12 +68,29 @@ public class ControllerGerenFuncionarios implements Initializable{
 
     private ObservableList<Funcionario> oblist = FXCollections.observableArrayList();
 
-    @FXML
-    void ShowSalvar(ActionEvent event) {
 
+
+
+    @FXML
+    void ShowSalvar(ActionEvent event) throws IOException {
     }
 
+    @FXML
+    void ShowDelete(ActionEvent event) {
+    	try{
 
+    		int id = tabGerenFuncionarios.getSelectionModel().getSelectedItem().getId();
+    		daoFuncionario.DeleteFuncionario(id);
+    		new Mensagem("Funcionario excluido da tabela com sucesso!");
+
+    		Scene scene = (Scene) ((Node) event.getSource()).getScene();
+        	Util.LoadWindow(getClass().getResource("/view/TelaGerenciarFuncionarios.fxml"), scene, "x");
+
+    	}catch(Exception e){
+    		new Mensagem("Erro ao excluir, selecione a linha na tabela!");
+    	}
+
+    }
 
     void initTable(){
     	this.oblist.clear();
@@ -72,6 +99,7 @@ public class ControllerGerenFuncionarios implements Initializable{
 
     	filteredData = new FilteredList<>(oblist);
 
+    	colId.setCellValueFactory(new PropertyValueFactory<>("id"));
 		colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		colCpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
 		colEndereco.setCellValueFactory(new PropertyValueFactory<>("id_endereco"));

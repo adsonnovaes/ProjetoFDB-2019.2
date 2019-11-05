@@ -4,6 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.cj.Query;
+
 import exception.DaoException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,6 +18,7 @@ public class DaoFuncionario implements IDaoFuncionario{
     private Connection conexao;
     private PreparedStatement statement;
     private ResultSet rs;
+    private Query query;
     private IDaoEndereco daoEnd = new DaoEndereco();
 
 	@Override
@@ -79,6 +82,7 @@ public class DaoFuncionario implements IDaoFuncionario{
 
 				Funcionario funcionario = new Funcionario();
 
+				funcionario.setId(rs.getInt("id"));
 				funcionario.setNome(rs.getString("nome"));
 				funcionario.setCpf(rs.getString("cpf"));
 				funcionario.setId_endereco(rs.getInt("endereco_id"));
@@ -98,8 +102,22 @@ public class DaoFuncionario implements IDaoFuncionario{
 		return obs;
 	}
 
+	@Override
+	public void DeleteFuncionario(int id) {
 
+        try {
 
+        	this.conexao = SqlConnection.creatConnection();
+			this.statement = conexao.prepareStatement(SqlUtil.Funcioario.DELETE);
+
+			statement.setInt(1, id);
+
+			statement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 
 }

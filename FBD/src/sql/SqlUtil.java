@@ -10,12 +10,15 @@ public class SqlUtil {
 
     public static class Funcioario {
 
+
         public static String INSERT_ALL = "INSERT INTO rotasviagens.funcionario (nome,cpf,identidade,email,senha,endereco_id) "
                 + "VALUES (?,?,?,?,?,?) ";
 
         public static String EDITAR_ALL = "update funcionario set nome =?, cpf=?, .... WHERE id = ?";
 
-        public static String GETALL = "SELECT nome,cpf,endereco_id,identidade,email FROM rotasviagens.funcionario;";
+        public static String GETALL = "SELECT id,nome,cpf,endereco_id,identidade,email FROM rotasviagens.funcionario;";
+
+        public static String DELETE = "DELETE FROM rotasviagens.funcionario WHERE id = ?";
 
     }
 
