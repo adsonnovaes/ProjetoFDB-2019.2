@@ -4,6 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.media.jfxmedia.events.NewFrameEvent;
+
 import exception.DaoException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -56,7 +58,36 @@ public class DaoFuncionario implements IDaoFuncionario{
 
 	@Override
 	public Funcionario BuscarFuncionarioID(int id) throws DaoException {
-		return null;
+
+		Funcionario funcionario = new Funcionario();
+
+		try {
+
+			this.conexao = SqlConnection.creatConnection();
+			this.statement = conexao.prepareStatement(SqlUtil.Funcioario.GET);
+			statement.setInt(1, id);
+
+			this.rs = statement.executeQuery();
+
+			if(rs != null && rs.next()){
+
+				funcionario.setId(rs.getInt("id"));
+				funcionario.setNome(rs.getString("nome"));
+				funcionario.setCpf(rs.getString("cpf"));
+				funcionario.setIdentidade(rs.getInt("identidade"));
+				funcionario.setEmail(rs.getString("email"));
+			}
+
+
+
+
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return funcionario;
 	}
 
 	@Override
@@ -114,6 +145,29 @@ public class DaoFuncionario implements IDaoFuncionario{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void UpdateFuncionario(Funcionario i) {
+
+        try {
+        	this.conexao = SqlConnection.creatConnection();
+			this.statement = conexao.prepareStatement(SqlUtil.Funcioario.UPDATE);
+
+			statement.setString(1, i.getNome());
+	        statement.setString(2, i.getCpf());
+	        statement.setInt(3,i.getIdentidade());
+	        statement.setString(4, i.getEmail());
+	        statement.setInt(5, i.getId());
+
+	        statement.execute();
+
+	        this.conexao.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 

@@ -11,6 +11,7 @@ import dao.DaoEndereco;
 import dao.DaoFuncionario;
 import dao.IDaoEndereco;
 import dao.IDaoFuncionario;
+import exception.DaoException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -39,6 +40,12 @@ public class ControllerGerenFuncionarios implements Initializable{
 
     @FXML
     private JFXButton btnDeletar;
+
+    @FXML
+    private JFXButton btnIdUser;
+
+    @FXML
+    private JFXButton btnIdEnd;
 
     @FXML
     private JFXTextField textSearch;
@@ -157,7 +164,26 @@ public class ControllerGerenFuncionarios implements Initializable{
     }
 
     @FXML
-    void ShowSalvarAlteracoes(ActionEvent event) {
+    void ShowSalvarAlteracoes(ActionEvent event) throws IOException {
+
+    	if(!textIdUser.getText().isEmpty()){
+
+    		Funcionario fun = new Funcionario();
+    		fun.setId(Integer.parseInt(textIdUser.getText()));
+    		fun.setNome(textNewNome.getText());
+    		fun.setEmail(textNewEmail.getText());
+    		fun.setCpf(textNewCpf.getText());
+    		fun.setIdentidade(Integer.parseInt(textNewIdentidade.getText()));
+
+    		daoFuncionario.UpdateFuncionario(fun);
+
+    		new Mensagem("Dados alterados com sucesso!");
+
+    		Scene scene = (Scene) ((Node) event.getSource()).getScene();
+        	Util.LoadWindow(getClass().getResource("/view/TelaGerenciarFuncionarios.fxml"), scene, "x");
+
+    	}
+
 
     }
 
@@ -290,6 +316,28 @@ public class ControllerGerenFuncionarios implements Initializable{
     	SortedList<Endereco> sortedData = new SortedList<>(filteredDataEnd);
     	sortedData.comparatorProperty().bind(tabEndereco.comparatorProperty());
     	tabEndereco.setItems(sortedData);
+
+    }
+
+
+    @FXML
+    void showEditarEnd(ActionEvent event) {
+
+    }
+
+    @FXML
+    void showBuscarUser(ActionEvent event) {
+    	try {
+			Funcionario edite = daoFuncionario.BuscarFuncionarioID(Integer.parseInt(textIdUser.getText()));
+			textNewNome.setText(edite.getNome());
+			textNewEmail.setText(edite.getEmail());
+			textNewCpf.setText(edite.getCpf());
+			textNewIdentidade.setText(Integer.toString(edite.getIdentidade()));
+			new Mensagem("Modifique os campos desejados e clique em salvar.");
+
+		} catch (DaoException e) {
+			e.printStackTrace();
+		}
 
     }
 

@@ -47,6 +47,7 @@ public class ControllerLogin {
     	if(passSenha.getText().equalsIgnoreCase(Main.SENHA) && textLogin.getText().equalsIgnoreCase(Main.LOGIN)){
     		Main.changerScene();
     	}else{
+
     		JOptionPane.showMessageDialog(null, "Login ou senha invalido.");
     	}
 

@@ -131,7 +131,12 @@
                                     <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <JFXTextField fx:id="textIdUser" layoutX="158.0" layoutY="131.0" maxWidth="219.0" minWidth="199.0" prefHeight="43.0" prefWidth="219.0" promptText="Digite o id correspondente" />
+                              <HBox layoutX="160.0" layoutY="134.0">
+                                 <children>
+                                    <JFXTextField fx:id="textIdUser" maxWidth="219.0" minWidth="41.0" prefHeight="43.0" prefWidth="66.0" promptText="ID" />
+                                    <JFXButton fx:id="btnIdUser" onAction="#showBuscarUser" text="OK" />
+                                 </children>
+                              </HBox>
                               <Label layoutX="61.0" layoutY="211.0" text="Nome:" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
@@ -161,7 +166,12 @@
                                     <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <JFXTextField fx:id="textIdEnd" layoutX="558.0" layoutY="122.0" maxWidth="219.0" minWidth="199.0" prefHeight="43.0" prefWidth="219.0" promptText="Digite o id do endereço" />
+                              <HBox layoutX="558.0" layoutY="129.0">
+                                 <children>
+                                    <JFXTextField fx:id="textIdEnd" maxWidth="219.0" minWidth="65.0" prefHeight="43.0" prefWidth="65.0" promptText="ID" />
+                                    <JFXButton fx:id="btnIdEnd" onAction="#showEditarEnd" text="OK" />
+                                 </children>
+                              </HBox>
                               <Label layoutX="461.0" layoutY="195.0" text="Rua:" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
