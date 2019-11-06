@@ -58,7 +58,34 @@ public class DaoEndereco implements IDaoEndereco{
 	}
 
 	@Override
-	public void buscarEnderecoId(int id) throws DaoException {
+	public Endereco buscarEnderecoId(int id) throws DaoException {
+
+		Endereco end = new Endereco();
+
+		try {
+
+			this.conexao = SqlConnection.creatConnection();
+			this.statement = conexao.prepareStatement(SqlUtil.Endereco.GET);
+			statement.setInt(1, id);
+
+			this.rs = statement.executeQuery();
+
+			if(rs != null && rs.next()){
+
+				end.setId(rs.getInt("id_endereco"));
+				end.setRua(rs.getString("rua"));
+				end.setNum_casa(rs.getInt("num_casa"));
+				end.setBairro(rs.getString("bairro"));
+				end.setCidade(rs.getString("cidade"));
+				end.setUf(rs.getString("uf"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return end;
+
 
 	}
 
@@ -116,6 +143,30 @@ public class DaoEndereco implements IDaoEndereco{
 			e.printStackTrace();
 		}
 
+	}
+
+
+	@Override
+	public void UpdateEndereco(Endereco end) {
+
+		try {
+        	this.conexao = SqlConnection.creatConnection();
+			this.statement = conexao.prepareStatement(SqlUtil.Endereco.UPDATE);
+
+			statement.setString(1, end.getRua());
+	        statement.setInt(2, end.getNum_casa());
+	        statement.setString(3,end.getBairro());
+	        statement.setString(4, end.getCidade());
+	        statement.setString(5, end.getUf());
+	        statement.setInt(6, end.getId());
+
+	        statement.execute();
+
+	        this.conexao.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 

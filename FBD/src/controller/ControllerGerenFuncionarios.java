@@ -163,12 +163,8 @@ public class ControllerGerenFuncionarios implements Initializable{
 
     }
 
-    @FXML
-    void ShowSalvarAlteracoes(ActionEvent event) throws IOException {
-
-    	if(!textIdUser.getText().isEmpty()){
-
-    		Funcionario fun = new Funcionario();
+    private void UpdateUser(){
+    	    Funcionario fun = new Funcionario();
     		fun.setId(Integer.parseInt(textIdUser.getText()));
     		fun.setNome(textNewNome.getText());
     		fun.setEmail(textNewEmail.getText());
@@ -177,12 +173,44 @@ public class ControllerGerenFuncionarios implements Initializable{
 
     		daoFuncionario.UpdateFuncionario(fun);
 
-    		new Mensagem("Dados alterados com sucesso!");
+    }
 
-    		Scene scene = (Scene) ((Node) event.getSource()).getScene();
-        	Util.LoadWindow(getClass().getResource("/view/TelaGerenciarFuncionarios.fxml"), scene, "x");
+    private void UpdateEnd(){
+
+		Endereco end = new Endereco();
+		end.setId(Integer.parseInt(textIdEnd.getText()));
+		end.setBairro(textNewBairro.getText());
+		end.setCidade(textNewCidade.getText());
+		end.setNum_casa(Integer.parseInt(textNewNumero.getText()));
+		end.setRua(textNewRua.getText());
+		end.setUf(textNewUf.getText());
+
+		daoEndereco.UpdateEndereco(end);
+
+    }
+
+    @FXML
+    void ShowSalvarAlteracoes(ActionEvent event) throws IOException {
+
+    	if(!textIdUser.getText().isEmpty() && textIdEnd.getText().isEmpty()){
+    		UpdateUser();
 
     	}
+    	else if(!textIdEnd.getText().isEmpty() && textIdUser.getText().isEmpty()){
+    		UpdateEnd();
+    	}
+    	else if(textIdEnd.getText().isEmpty() && textIdUser.getText().isEmpty()){
+    		new Mensagem("Preencha o ID respectivo ao que deseja mudar");
+    	}
+
+    	else{
+    		UpdateEnd();
+    		UpdateUser();
+    	}
+
+    	new Mensagem("Dados alterados com sucesso!");
+		Scene scene = (Scene) ((Node) event.getSource()).getScene();
+    	Util.LoadWindow(getClass().getResource("/view/TelaGerenciarFuncionarios.fxml"), scene, "x");
 
 
     }
@@ -321,19 +349,48 @@ public class ControllerGerenFuncionarios implements Initializable{
 
 
     @FXML
-    void showEditarEnd(ActionEvent event) {
+    void showBuscarEnd(ActionEvent event) throws DaoException {
+		Endereco editeEnd;
+		try {
+			editeEnd = daoEndereco.buscarEnderecoId(Integer.parseInt(textIdEnd.getText()));
+
+			if(editeEnd.getCidade() != null){
+				textNewRua.setText(editeEnd.getRua());
+				textNewNumero.setText(Integer.toString(editeEnd.getNum_casa()));
+				textNewBairro.setText(editeEnd.getBairro());
+				textNewCidade.setText(editeEnd.getCidade());
+				textNewUf.setText(editeEnd.getUf());
+
+				new Mensagem("Modifique os campos desejados e clique em salvar.");
+
+			}else{
+					new Mensagem("Esse Endereço não está cadastrado.");
+
+				}
+			}catch (NumberFormatException e) {
+
+				}
+
 
     }
 
     @FXML
     void showBuscarUser(ActionEvent event) {
     	try {
+
 			Funcionario edite = daoFuncionario.BuscarFuncionarioID(Integer.parseInt(textIdUser.getText()));
-			textNewNome.setText(edite.getNome());
-			textNewEmail.setText(edite.getEmail());
-			textNewCpf.setText(edite.getCpf());
-			textNewIdentidade.setText(Integer.toString(edite.getIdentidade()));
-			new Mensagem("Modifique os campos desejados e clique em salvar.");
+			if(edite.getNome() != null){
+
+				textNewNome.setText(edite.getNome());
+				textNewEmail.setText(edite.getEmail());
+				textNewCpf.setText(edite.getCpf());
+				textNewIdentidade.setText(Integer.toString(edite.getIdentidade()));
+				new Mensagem("Modifique os campos desejados e clique em salvar.");
+
+			}else{
+
+				new Mensagem("Esse Funcionario não está cadastrado.");
+			}
 
 		} catch (DaoException e) {
 			e.printStackTrace();

@@ -169,7 +169,7 @@
                               <HBox layoutX="558.0" layoutY="129.0">
                                  <children>
                                     <JFXTextField fx:id="textIdEnd" maxWidth="219.0" minWidth="65.0" prefHeight="43.0" prefWidth="65.0" promptText="ID" />
-                                    <JFXButton fx:id="btnIdEnd" onAction="#showEditarEnd" text="OK" />
+                                    <JFXButton fx:id="btnIdEnd" onAction="#showBuscarEnd" text="OK" />
                                  </children>
                               </HBox>
                               <Label layoutX="461.0" layoutY="195.0" text="Rua:" textFill="WHITE">

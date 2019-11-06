@@ -32,13 +32,23 @@ public class SqlUtil {
 
         public static String GETALL = "SELECT id_endereco,rua,num_casa,bairro,cidade,uf FROM rotasviagens.endereco;";
 
+        public static String GET = "SELECT * FROM rotasviagens.endereco where id_endereco = ?;";
+
         public static String DELETE = "DELETE FROM rotasviagens.endereco WHERE id_endereco = ?";
+
+        public static String UPDATE = "update rotasviagens.endereco set rua = ?, num_casa = ?, bairro = ?, cidade = ?"
+				+ ", uf = ? where id_endereco = ?;";
 
     }
     public static class Viagem {
 
         public static String INSERT_ALL = "insert into Viagem (id_motorista, id_rota,id_veiculo,id_carga) "
                 + "values (?,?,?,?) ";
+    }
+    
+    public static class Motorista{
+    	
+    	
     }
 
     public static class Rota {
