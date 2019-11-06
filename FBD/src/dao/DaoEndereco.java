@@ -1,8 +1,12 @@
 package dao;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import exception.DaoException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.Endereco;
 import sql.SqlConnection;
 import sql.SqlUtil;
@@ -57,5 +61,62 @@ public class DaoEndereco implements IDaoEndereco{
 	public void buscarEnderecoId(int id) throws DaoException {
 
 	}
+
+
+	@Override
+	public ObservableList<Endereco> getAllEnderecos() {
+		List<Endereco> ends = new ArrayList<>();
+
+		try {
+
+			this.conexao = SqlConnection.creatConnection();
+			this.statement = conexao.prepareStatement(SqlUtil.Endereco.GETALL);
+			this.rs = statement.executeQuery();
+
+			while(rs.next()){
+
+				Endereco end = new Endereco();
+
+				end.setId(rs.getInt("id_endereco"));
+				end.setRua(rs.getString("rua"));
+				end.setNum_casa(rs.getInt("num_casa"));
+				end.setBairro(rs.getString("bairro"));
+				end.setCidade(rs.getString("cidade"));
+				end.setUf(rs.getString("uf"));
+
+				ends.add(end);
+
+			}
+
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+
+		ObservableList<Endereco> obs = FXCollections.observableList(ends);
+		return obs;
+	}
+
+
+	@Override
+	public void DeleteEndereco(int id) {
+
+        try {
+
+        	this.conexao = SqlConnection.creatConnection();
+			this.statement = conexao.prepareStatement(SqlUtil.Endereco.DELETE);
+
+			statement.setInt(1, id);
+
+			statement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
 
 }

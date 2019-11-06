@@ -66,7 +66,6 @@
     -fx-font-size: 20px;
 }
 
-/* alterei aqui */
 .options-btn:hover{
     -fx-border-color: fff;  /*  */
     -fx-background-color: fff; /*  */
@@ -101,7 +100,7 @@
 }
 
 .tab-label{
-    -fx-text-fill: #FFFF8D;
+    -fx-text-fill: fff;
     -fx-font-size: 12pt;
 }
 
@@ -117,11 +116,11 @@
 }
 
 .settings-tab:selected{
-    -fx-background-color: #FFFF8D;
+    -fx-background-color: fff;
 }
 
 .settings-tab:selected .tab-label{
-    -fx-text-fill: #2A2E37;
+    -fx-text-fill: fff;
 }
 
 .settings-tab .tab-header-background{

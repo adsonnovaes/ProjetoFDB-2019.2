@@ -26,6 +26,11 @@ public class SqlUtil {
 
         public static String INSERT_ALL = "INSERT INTO rotasviagens.endereco (rua,num_casa,bairro,cidade,uf) "
                 + "VALUES (?,?,?,?,?) ";
+
+        public static String GETALL = "SELECT id_endereco,rua,num_casa,bairro,cidade,uf FROM rotasviagens.endereco;";
+
+        public static String DELETE = "DELETE FROM rotasviagens.endereco WHERE id_endereco = ?";
+
     }
     public static class Viagem {
 

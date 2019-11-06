@@ -4,8 +4,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.cj.Query;
-
 import exception.DaoException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,7 +16,6 @@ public class DaoFuncionario implements IDaoFuncionario{
     private Connection conexao;
     private PreparedStatement statement;
     private ResultSet rs;
-    private Query query;
     private IDaoEndereco daoEnd = new DaoEndereco();
 
 	@Override

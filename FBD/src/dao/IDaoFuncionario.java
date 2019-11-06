@@ -13,6 +13,6 @@ public interface IDaoFuncionario {
 	public Funcionario BuscarFuncionarioID(int id) throws DaoException;
 	public List<Funcionario> buscaGeralFuncionario(String i);
 	public void DeleteFuncionario(int id);
-	public ObservableList<Funcionario> getAllFuncionarios() ;
+	public ObservableList<Funcionario> getAllFuncionarios();
 
 }
