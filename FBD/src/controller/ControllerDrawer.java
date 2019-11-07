@@ -162,8 +162,9 @@ public class ControllerDrawer implements Initializable{
     }
 
     @FXML
-    void ShowMotorista(ActionEvent event) {
-
+    void ShowMotorista(ActionEvent event) throws IOException {
+    	Scene scene = (Scene) ((Node) event.getSource()).getScene();
+    	Util.LoadWindow(getClass().getResource("/view/TelaGerenciarMotoristas.fxml"), scene, "x");
     }
 
     @FXML

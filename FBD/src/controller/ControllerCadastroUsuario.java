@@ -38,6 +38,9 @@ public class ControllerCadastroUsuario {
     private JFXTextField textNome;
 
     @FXML
+    private JFXTextField textRg;
+
+    @FXML
     private JFXPasswordField passSenha;
 
     @FXML
@@ -102,7 +105,7 @@ public class ControllerCadastroUsuario {
     		fun.setEmail(textLogin.getText());
     		fun.setSenha(passSenha.getText());
     		fun.setCpf(textCpf.getText());
-    		fun.setIdentidade(888888);
+    		fun.setIdentidade(Integer.parseInt(textRg.getText()));
     		fun.setEnd(end);
     		Main.fachada.SalvarFuncionario(fun);
 

@@ -4,8 +4,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.media.jfxmedia.events.NewFrameEvent;
-
 import exception.DaoException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -77,10 +75,6 @@ public class DaoFuncionario implements IDaoFuncionario{
 				funcionario.setIdentidade(rs.getInt("identidade"));
 				funcionario.setEmail(rs.getString("email"));
 			}
-
-
-
-
 
 
 		} catch (SQLException e) {

@@ -45,10 +45,20 @@ public class SqlUtil {
         public static String INSERT_ALL = "insert into Viagem (id_motorista, id_rota,id_veiculo,id_carga) "
                 + "values (?,?,?,?) ";
     }
-    
+
     public static class Motorista{
-    	
-    	
+        public static String INSERT_ALL = "INSERT INTO rotasviagens.motorista (nome,telefone,cnh,categoria_cnh,cpf,rg,endereco_id)"
+                + "VALUES (?,?,?,?,?,?,?) ";
+
+        public static String GETALL = "SELECT * FROM rotasviagens.motorista;";
+
+        public static String DELETE = "DELETE FROM rotasviagens.motorista WHERE id_motorista = ?";
+
+        public static String GET = "SELECT * FROM rotasviagens.motorista where id_motorista = ?;";
+
+        public static String UPDATE = "update rotasviagens.motorista set nome = ?, telefone = ? ,cnh = ?, categoria_cnh = ?, "
+        								+ "cpf = ?, rg = ? where id_motorista = ?;";
+
     }
 
     public static class Rota {

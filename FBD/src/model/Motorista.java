@@ -8,8 +8,15 @@ public class Motorista extends Pessoa{
 	String cnh;
 	String categoriaCnh;
 	String telefone;
+	Endereco end;
 
 
+	public Endereco getEnd() {
+		return end;
+	}
+	public void setEnd(Endereco end) {
+		this.end = end;
+	}
 	public int getId() {
 		return id;
 	}

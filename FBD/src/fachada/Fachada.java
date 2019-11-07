@@ -147,6 +147,7 @@ public class Fachada implements IFachada{
 //	Motorista
 	@Override
 	public void SalvarMotorista(Motorista motorista) throws BusinessException {
+		businessMotorista.salvarMotorista(motorista);
 
 	}
 

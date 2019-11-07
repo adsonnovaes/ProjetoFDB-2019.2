@@ -17,12 +17,6 @@
                   <Font name="System Bold" size="23.0" />
                </font>
             </Label>
-            <Label layoutX="541.0" layoutY="369.0" text="CEP:" textFill="#f6f5f5">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <JFXTextField fx:id="textCep" layoutX="530.0" layoutY="391.0" maxWidth="159.0" minWidth="159.0" prefHeight="31.0" prefWidth="159.0" promptText="Exemplo: 56460000" unFocusColor="#fdfafa" />
             <Label layoutX="65.0" layoutY="148.0" text="Nome do Motorista:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
@@ -34,43 +28,43 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textEndereco" layoutX="53.0" layoutY="391.0" maxWidth="260.0" minWidth="112.0" prefHeight="43.0" prefWidth="260.0" promptText="Exemplo: Rua manoel de carvalho" unFocusColor="#fdfafa" />
-            <Label layoutX="272.0" layoutY="480.0" text="Cidade:" textFill="#f6f5f5">
+            <JFXTextField fx:id="textRua" layoutX="53.0" layoutY="391.0" maxWidth="260.0" minWidth="112.0" prefHeight="43.0" prefWidth="260.0" promptText="Exemplo: Rua manoel de carvalho" unFocusColor="#fdfafa" />
+            <Label layoutX="65.0" layoutY="476.0" text="Cidade:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textCidade" layoutX="260.0" layoutY="502.0" maxWidth="137.0" minWidth="112.0" prefHeight="43.0" prefWidth="137.0" promptText="Exemplo: Orocó" unFocusColor="#fdfafa" />
-            <Label layoutX="351.0" layoutY="369.0" text="Número:" textFill="#f6f5f5">
+            <JFXTextField fx:id="textCidade" layoutX="53.0" layoutY="498.0" maxWidth="137.0" minWidth="112.0" prefHeight="43.0" prefWidth="137.0" promptText="Exemplo: Orocó" unFocusColor="#fdfafa" />
+            <Label layoutX="540.0" layoutY="368.0" text="Número:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textNumero" layoutX="339.0" layoutY="391.0" maxWidth="130.0" minWidth="112.0" prefHeight="43.0" prefWidth="116.0" promptText="Exemplo: 15" unFocusColor="#fdfafa" />
-            <Label layoutX="67.0" layoutY="480.0" text="Bairro:" textFill="#f6f5f5">
+            <JFXTextField fx:id="textNumero" layoutX="528.0" layoutY="390.0" maxWidth="130.0" minWidth="112.0" prefHeight="43.0" prefWidth="116.0" promptText="Exemplo: 15" unFocusColor="#fdfafa" />
+            <Label layoutX="342.0" layoutY="369.0" text="Bairro:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textBairro" layoutX="56.0" layoutY="502.0" maxWidth="159.0" minWidth="149.0" prefHeight="43.0" prefWidth="149.0" promptText="Exemplo: Centro" unFocusColor="#fdfafa" />
-            <Label layoutX="445.0" layoutY="480.0" text="UF:" textFill="#f6f5f5">
+            <JFXTextField fx:id="textBairro" layoutX="331.0" layoutY="391.0" maxWidth="159.0" minWidth="149.0" prefHeight="43.0" prefWidth="149.0" promptText="Exemplo: Centro" unFocusColor="#fdfafa" />
+            <Label layoutX="238.0" layoutY="476.0" text="UF:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textUf" layoutX="433.0" layoutY="502.0" maxWidth="149.0" minWidth="112.0" prefHeight="43.0" prefWidth="149.0" promptText="Exemplo: PE" unFocusColor="#fdfafa" />
-            <Label layoutX="385.0" layoutY="148.0" text="CPF:" textFill="#f6f5f5">
+            <JFXTextField fx:id="textUf" layoutX="226.0" layoutY="498.0" maxWidth="149.0" minWidth="112.0" prefHeight="43.0" prefWidth="149.0" promptText="Exemplo: PE" unFocusColor="#fdfafa" />
+            <Label layoutX="345.0" layoutY="145.0" text="CPF:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textCpf" layoutX="373.0" layoutY="170.0" maxWidth="186.0" minWidth="112.0" prefHeight="43.0" prefWidth="186.0" promptText="Exemplo: 11111111111" unFocusColor="#fdfafa" />
-            <Label layoutX="626.0" layoutY="148.0" text="RG:" textFill="#f6f5f5">
+            <JFXTextField fx:id="textCpf" layoutX="333.0" layoutY="167.0" maxWidth="186.0" minWidth="112.0" prefHeight="43.0" prefWidth="186.0" promptText="Exemplo: 11111111111" unFocusColor="#fdfafa" />
+            <Label layoutX="586.0" layoutY="145.0" text="RG:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textRg" layoutX="615.0" layoutY="171.0" maxWidth="149.0" minWidth="112.0" prefHeight="43.0" prefWidth="149.0" promptText="Exemplo: 2222222" unFocusColor="#fdfafa" />
+            <JFXTextField fx:id="textRg" layoutX="575.0" layoutY="168.0" maxWidth="149.0" minWidth="112.0" prefHeight="43.0" prefWidth="149.0" promptText="Exemplo: 2222222" unFocusColor="#fdfafa" />
             <Label layoutX="64.0" layoutY="252.0" text="CNH:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />

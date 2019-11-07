@@ -13,7 +13,7 @@
    <children>
       <Pane fx:id="PanelCadastro" layoutX="-1.0" layoutY="-7.0" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #090e3d;">
          <children>
-            <Label layoutX="14.0" layoutY="164.0" text="CPF:" textFill="WHITE">
+            <Label layoutX="14.0" layoutY="140.0" text="CPF:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -43,19 +43,19 @@
                   <Font name="System Bold" size="23.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="297.0" text="Senha:" textFill="WHITE">
+            <Label layoutX="14.0" layoutY="298.0" text="Senha:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="231.0" text="Login:" textFill="WHITE">
+            <Label layoutX="14.0" layoutY="245.0" text="Login:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXPasswordField fx:id="passSenha" layoutX="85.0" layoutY="294.0" promptText="Insira a senha" unFocusColor="#c5c5c5" />
-            <JFXTextField fx:id="textLogin" layoutX="85.0" layoutY="228.0" promptText="Insira o login" unFocusColor="#c5c5c5" />
-            <JFXTextField fx:id="textCpf" layoutX="85.0" layoutY="161.0" promptText="Insira o cpf" unFocusColor="#c5c5c5" />
+            <JFXPasswordField fx:id="passSenha" layoutX="85.0" layoutY="295.0" promptText="Insira a senha" unFocusColor="#c5c5c5" />
+            <JFXTextField fx:id="textLogin" layoutX="85.0" layoutY="242.0" promptText="Insira o login" unFocusColor="#c5c5c5" />
+            <JFXTextField fx:id="textCpf" layoutX="85.0" layoutY="137.0" promptText="Insira o cpf" unFocusColor="#c5c5c5" />
             <Label layoutX="281.0" layoutY="140.0" text="Número:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
@@ -86,6 +86,12 @@
             </Label>
             <JFXTextField fx:id="textCidade" layoutX="352.0" layoutY="244.0" promptText="Insira a cidade" unFocusColor="#c5c5c5" />
             <JFXTextField fx:id="textUf" layoutX="352.0" layoutY="295.0" promptText="Insira o uf" unFocusColor="#c5c5c5" />
+            <Label layoutX="14.0" layoutY="194.0" text="RG:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="textRg" layoutX="85.0" layoutY="191.0" promptText="Insira a identidade" unFocusColor="#c5c5c5" />
          </children>
       </Pane>
    </children>
