@@ -1,6 +1,5 @@
 package fachada;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import business.BusinessCarga;
@@ -133,15 +132,10 @@ public class Fachada implements IFachada{
 	}
 
 	@Override
-	public List<Funcionario> buscaGeralFuncionario(String busca) throws BusinessException {
-
-		ArrayList<Funcionario> funcionarios = new ArrayList<>();
-
-		funcionarios = (ArrayList<Funcionario>) this.businessFuncionario.buscaGeralFuncionario(busca);
-
-		return funcionarios;
-
+	public boolean BuscarFuncionarioRg(int rg) throws DaoException {
+		return businessFuncionario.BuscarFuncionarioRg(rg);
 	}
+
 
 
 //	Motorista
@@ -258,6 +252,8 @@ public class Fachada implements IFachada{
 	public List<Viagem> buscaAllViagem(String i) {
 		return null;
 	}
+
+
 
 
 

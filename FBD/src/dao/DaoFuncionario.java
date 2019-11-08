@@ -84,11 +84,6 @@ public class DaoFuncionario implements IDaoFuncionario{
 		return funcionario;
 	}
 
-	@Override
-	public List<Funcionario> buscaGeralFuncionario(String i) {
-
-		return null;
-	}
 
 	@Override
 	public ObservableList<Funcionario> getAllFuncionarios() {
@@ -162,6 +157,32 @@ public class DaoFuncionario implements IDaoFuncionario{
 			e.printStackTrace();
 		}
 
+	}
+
+	@Override
+	public boolean BuscarFuncionarioRg(int rg) throws DaoException {
+
+        try {
+        	this.conexao = SqlConnection.creatConnection();
+			this.statement = conexao.prepareStatement(SqlUtil.Funcioario.GET_RG);
+			statement.setInt(1, rg);
+			statement.setInt(2, rg);
+
+			this.rs = statement.executeQuery();
+			if(rs.next()){
+				if(rs.getInt("identidade") == rg || rs.getInt("rg") == rg){
+					return false;
+				}
+
+			}
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+
+		return true;
 	}
 
 

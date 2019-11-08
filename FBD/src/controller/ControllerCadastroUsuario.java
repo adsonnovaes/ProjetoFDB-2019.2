@@ -9,11 +9,13 @@ import com.jfoenix.controls.JFXTextField;
 import app.Main;
 import exception.BusinessException;
 import exception.ControllerException;
+import exception.DaoException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import mensagem.Mensagem;
 import model.Endereco;
 import model.Funcionario;
 
@@ -85,32 +87,44 @@ public class ControllerCadastroUsuario {
     }
 
     @FXML
-    void ShowConfirmar(ActionEvent event) throws BusinessException {
-    	if(textLogin.getText().length() < 0 || textCpf.getText().length() < 11 || passSenha.getText().length() < 0
-    		|| textNome.getText().length() < 0)
-    	{
-    		new ControllerException("Complete todos os campos corretamente.");
+    void ShowConfirmar(ActionEvent event) throws BusinessException, DaoException, IOException {
+
+    	boolean validar = Main.fachada.BuscarFuncionarioRg(Integer.parseInt(textRg.getText()));
+    	if(validar){
+	    	if(textLogin.getText().length() < 0 || textCpf.getText().length() < 11 || passSenha.getText().length() < 0
+	    		|| textNome.getText().length() < 0 )
+	    	{
+	    		new ControllerException("Complete todos os campos corretamente.");
+	    	}else{
+
+	    		Endereco end = new Endereco();
+	    		end.setBairro(textBairro.getText());
+	    		end.setCidade(textCidade.getText());
+	    		end.setNum_casa(Integer.parseInt(textnumCasa.getText()));
+	    		end.setRua(textRua.getText());
+	    		end.setUf(textUf.getText());
+
+
+	    		Funcionario fun = new Funcionario();
+	    		fun.setNome(textNome.getText());
+	    		fun.setEmail(textLogin.getText());
+	    		fun.setSenha(passSenha.getText());
+	    		fun.setCpf(textCpf.getText());
+	    		fun.setIdentidade(Integer.parseInt(textRg.getText()));
+	    		fun.setEnd(end);
+	    		Main.fachada.SalvarFuncionario(fun);
+	    		new Mensagem("Funcionário cadastrado com sucesso.");
+
+	    		Pane ap = FXMLLoader.load(getClass().getResource("/view/TelaLogin.fxml"));
+	        	Content.getChildren().removeAll();
+	        	Content.getChildren().setAll(ap);
+	        	Content.toFront();
+
+    	}
+
+
     	}else{
-
-    		Endereco end = new Endereco();
-    		end.setBairro(textBairro.getText());
-    		end.setCidade(textCidade.getText());
-    		end.setNum_casa(Integer.parseInt(textnumCasa.getText()));
-    		end.setRua(textRua.getText());
-    		end.setUf(textUf.getText());
-
-
-    		Funcionario fun = new Funcionario();
-    		fun.setNome(textNome.getText());
-    		fun.setEmail(textLogin.getText());
-    		fun.setSenha(passSenha.getText());
-    		fun.setCpf(textCpf.getText());
-    		fun.setIdentidade(Integer.parseInt(textRg.getText()));
-    		fun.setEnd(end);
-    		Main.fachada.SalvarFuncionario(fun);
-
-
-
+    		new Mensagem("Essa identidade ou cpf já consta no sistema.");
     	}
     }
 

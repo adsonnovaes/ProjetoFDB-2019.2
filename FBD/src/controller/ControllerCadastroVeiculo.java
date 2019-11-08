@@ -78,7 +78,6 @@ public class ControllerCadastroVeiculo implements Initializable{
     void ShowConfirmarCadastro(ActionEvent event) throws BusinessException, IOException {
 
     	boolean verificacao = Main.fachada.buscarVeiculoPlaca(textPlaca.getText());
-
     	if(verificacao){
     		    	if(textPlaca.getText().length() > 0 && textUf.getText().length() > 0
     		    	   && textMarca.getText().length() > 0 && textAno.getText().length() > 0

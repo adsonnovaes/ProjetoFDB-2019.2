@@ -1,8 +1,5 @@
 package business;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import dao.DaoFuncionario;
 import dao.IDaoFuncionario;
 import exception.BusinessException;
@@ -59,14 +56,10 @@ public class BusinessFuncionario implements IBusinessFuncionario{
 
 	}
 
+
 	@Override
-	public List<Funcionario> buscaGeralFuncionario(String busca) throws BusinessException {
-
-		ArrayList<Funcionario> funcionarios = new ArrayList<>();
-
-		funcionarios = (ArrayList<Funcionario>) this.buscaGeralFuncionario(busca);
-
-		return funcionarios;
+	public boolean BuscarFuncionarioRg(int rg) throws DaoException {
+		return daoFuncionario.BuscarFuncionarioRg(rg);
 	}
 
 }

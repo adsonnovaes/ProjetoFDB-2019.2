@@ -3,6 +3,7 @@ package fachada;
 import java.util.List;
 
 import exception.BusinessException;
+import exception.DaoException;
 import model.Carga;
 import model.Endereco;
 import model.Funcionario;
@@ -30,7 +31,7 @@ public interface IFachada {
 	public void SalvarFuncionario(Funcionario funcionario) throws BusinessException;
 	public void EditarFuncionario(Funcionario funcionario) throws BusinessException;
 	public Funcionario BuscarFuncionarioID(int id) throws BusinessException;
-	public List<Funcionario> buscaGeralFuncionario(String busca) throws BusinessException;
+	public boolean BuscarFuncionarioRg(int rg) throws DaoException;
 
 //	Motorista
 	public void SalvarMotorista(Motorista motorista) throws BusinessException;

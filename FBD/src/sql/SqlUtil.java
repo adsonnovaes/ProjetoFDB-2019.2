@@ -23,6 +23,8 @@ public class SqlUtil {
         public static String UPDATE = "update rotasviagens.funcionario set nome = ?, cpf = ?, identidade = ?, email = ?"
         								+ "where id = ?;";
 
+        public static String GET_RG = "select f.identidade,m.rg  from rotasviagens.funcionario f join rotasviagens.motorista m where identidade = ? or rg = ?;";
+
     }
 
     public static class Endereco {

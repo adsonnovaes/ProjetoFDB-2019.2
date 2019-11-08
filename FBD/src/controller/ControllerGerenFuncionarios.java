@@ -162,6 +162,11 @@ public class ControllerGerenFuncionarios implements Initializable{
     }
 
     private void UpdateUser(){
+
+    	if(textIdUser.getText().length() > 0 && textNewNome.getText().length() > 0
+    	   && textNewEmail.getText().length() > 0 && textNewCpf.getText().length() > 0
+    	   && textNewIdentidade.getText().length() > 0){
+
     	    Funcionario fun = new Funcionario();
     		fun.setId(Integer.parseInt(textIdUser.getText()));
     		fun.setNome(textNewNome.getText());
@@ -170,21 +175,30 @@ public class ControllerGerenFuncionarios implements Initializable{
     		fun.setIdentidade(Integer.parseInt(textNewIdentidade.getText()));
 
     		daoFuncionario.UpdateFuncionario(fun);
-
+    	}else{
+    		new Mensagem("Preencha todos os campos do funcionário.");
+    	}
     }
 
     private void UpdateEnd(){
 
-		Endereco end = new Endereco();
-		end.setId(Integer.parseInt(textIdEnd.getText()));
-		end.setBairro(textNewBairro.getText());
-		end.setCidade(textNewCidade.getText());
-		end.setNum_casa(Integer.parseInt(textNewNumero.getText()));
-		end.setRua(textNewRua.getText());
-		end.setUf(textNewUf.getText());
+    	if(textIdEnd.getText().length() > 0 && textNewBairro.getText().length() > 0
+    	   && textNewCidade.getText().length() > 0 && textNewNumero.getText().length() > 0
+    	   && textNewRua.getText().length() > 0 &&  textNewUf.getText().length() > 0){
 
-		daoEndereco.UpdateEndereco(end);
 
+			Endereco end = new Endereco();
+			end.setId(Integer.parseInt(textIdEnd.getText()));
+			end.setBairro(textNewBairro.getText());
+			end.setCidade(textNewCidade.getText());
+			end.setNum_casa(Integer.parseInt(textNewNumero.getText()));
+			end.setRua(textNewRua.getText());
+			end.setUf(textNewUf.getText());
+
+			daoEndereco.UpdateEndereco(end);
+    	}else{
+    		new Mensagem("Preencha todos os campos do endereço.");
+    	}
     }
 
     @FXML
