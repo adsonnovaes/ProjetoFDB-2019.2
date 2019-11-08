@@ -88,14 +88,11 @@ public class ControllerDrawer implements Initializable{
     	if(!box_cadastrar.isVisible()){
     		icon_arrow.setGlyphName("CHEVRON_DOWN");
         	int idx = box_buttons.getChildren().indexOf(cadastrar_btn)+1;
-//        	int from = box_buttons.getChildren().indexOf(box_cadastrar);
 
         	box_buttons.getChildren().add(idx, box_cadastrar);
         	box_cadastrar.setVisible(true);
     	}else{
     		icon_arrow.setGlyphName("CHEVRON_UP");
-//    		int idx = box_buttons.getChildren().size()-1;
-//    		int from = box_buttons.getChildren().indexOf(box_cadastrar);
 
     		box_buttons.getChildren().remove(box_cadastrar);
         	box_cadastrar.setVisible(false);
@@ -173,8 +170,9 @@ public class ControllerDrawer implements Initializable{
     }
 
     @FXML
-    void ShowVeiculos(ActionEvent event) {
-
+    void ShowVeiculos(ActionEvent event) throws IOException {
+    	Scene scene = (Scene) ((Node) event.getSource()).getScene();
+    	Util.LoadWindow(getClass().getResource("/view/TelaGerenciarVeiculos.fxml"), scene, "x");
     }
 
     @FXML

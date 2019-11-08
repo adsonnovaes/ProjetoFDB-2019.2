@@ -1,8 +1,7 @@
 package dao;
 
-import java.util.List;
-
 import exception.DaoException;
+import javafx.collections.ObservableList;
 import model.Veiculo;
 
 public interface IDaoVeiculo {
@@ -11,6 +10,8 @@ public interface IDaoVeiculo {
 	public Veiculo editarVeiculo(Veiculo veiculo) throws DaoException;
 	public Veiculo buscarVeiculoId(int id) throws DaoException;
 	public Veiculo buscarVeiculoPlaca(String placa);
-	public List<Veiculo> buscaAll(String i);
+	public void DeleteVeiculo(int id);
+	public void UpdateVeiculo(Veiculo i);
+	public ObservableList<Veiculo> getAllVeiculo();
 
 }

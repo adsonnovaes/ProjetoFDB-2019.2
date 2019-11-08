@@ -33,10 +33,6 @@ import util.Util;
 public class ControllerGerenMotorista implements Initializable{
 
     @FXML
-    private JFXButton btnSalvar;
-
-
-    @FXML
     private JFXButton btnDeletar;
 
     @FXML
@@ -379,12 +375,6 @@ public class ControllerGerenMotorista implements Initializable{
 
     }
 
-
-    @FXML
-    void ShowSalvar(ActionEvent event) throws IOException {
-
-
-    }
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

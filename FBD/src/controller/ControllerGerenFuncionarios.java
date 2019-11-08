@@ -32,11 +32,6 @@ import util.Util;
 
 public class ControllerGerenFuncionarios implements Initializable{
 
-    @FXML
-    private JFXButton btnEditar;
-
-    @FXML
-    private JFXButton btnSalvar;
 
     @FXML
     private JFXButton btnDeletar;
@@ -215,9 +210,6 @@ public class ControllerGerenFuncionarios implements Initializable{
 
     }
 
-    @FXML
-    void ShowSalvar(ActionEvent event) throws IOException {
-    }
 
     @FXML
     void ShowDelete(ActionEvent event) {

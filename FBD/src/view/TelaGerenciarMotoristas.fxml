@@ -25,13 +25,8 @@
                               <Font name="System Bold" size="23.0" />
                            </font>
                         </Label>
-                        <HBox layoutX="551.0" layoutY="560.0" spacing="40.0">
+                        <HBox layoutX="60.0" layoutY="547.0" spacing="40.0">
                            <children>
-                              <JFXButton fx:id="btnSalvar" onAction="#ShowSalvar" prefHeight="39.0" prefWidth="76.0" ripplerFill="#f4f3f3" text="Salvar" textFill="#efebeb">
-                                 <font>
-                                    <Font name="System Bold" size="15.0" />
-                                 </font>
-                              </JFXButton>
                               <JFXButton fx:id="btnDeletar" onAction="#ShowDelete" prefHeight="39.0" prefWidth="76.0" ripplerFill="#982b2b" text="Deletar" textFill="#efebeb">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
@@ -56,6 +51,11 @@
                               <JFXTextField fx:id="textSearch" maxWidth="658.0" minWidth="390.0" onKeyPressed="#showSearch" prefHeight="43.0" prefWidth="658.0" promptText="Digite alguma informação" />
                            </children>
                         </HBox>
+                        <Label layoutX="60.0" layoutY="518.0" text="* Para deletar um motorista é necessário selecionar uma linha.">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
                      </children>
                   </Pane>
                </content>
@@ -77,14 +77,19 @@
                                     <JFXTextField fx:id="textSearchEnd" maxWidth="658.0" minWidth="390.0" onKeyPressed="#showSearchEnd" prefHeight="43.0" prefWidth="647.0" promptText="Digite alguma informação" />
                                  </children>
                               </HBox>
-                              <JFXButton fx:id="btnDeletarEnd" layoutX="70.0" layoutY="573.0" onAction="#showDeleteEnd" prefHeight="39.0" prefWidth="94.0" ripplerFill="#f4f3f3" text="Deletar" textFill="#efebeb">
+                              <JFXButton fx:id="btnDeletarEnd" layoutX="70.0" layoutY="566.0" onAction="#showDeleteEnd" prefHeight="39.0" prefWidth="94.0" ripplerFill="#f4f3f3" text="Deletar" textFill="#efebeb">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </JFXButton>
+                              <Label layoutX="70.0" layoutY="535.0" text="* Para deletar um endereço é necessário selecionar uma linha.">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </Pane>
-                        <TableView fx:id="tabEndereco" layoutX="70.0" layoutY="148.0" prefHeight="390.0" prefWidth="1020.0">
+                        <TableView fx:id="tabEndereco" layoutX="70.0" layoutY="148.0" prefHeight="356.0" prefWidth="1020.0">
                            <columns>
                               <TableColumn fx:id="colIdEnd" prefWidth="103.00003051757812" text="Id" />
                               <TableColumn fx:id="colRua" prefWidth="213.66650390625" text="Rua" />

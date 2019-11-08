@@ -7,10 +7,13 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 
+import app.Main;
+import exception.BusinessException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
+import model.Veiculo;
 
 public class ControllerCadastroVeiculo implements Initializable{
 
@@ -48,19 +51,7 @@ public class ControllerCadastroVeiculo implements Initializable{
     private JFXTextField textRenavam;
 
     @FXML
-    private JFXTextField textRntrc;
-
-    @FXML
     private JFXTextField textCapacidadeKg;
-
-    @FXML
-    private JFXTextField textTara;
-
-    @FXML
-    private JFXTextField textCapacidadeCub;
-
-    @FXML
-    private JFXTextField textCiot;
 
 
     @FXML
@@ -78,7 +69,21 @@ public class ControllerCadastroVeiculo implements Initializable{
     }
 
     @FXML
-    void ShowConfirmarCadastro(ActionEvent event) {
+    void ShowConfirmarCadastro(ActionEvent event) throws BusinessException {
+
+    	Veiculo veiculo = new Veiculo();
+    	veiculo.setPlaca(textPlaca.getText());
+    	veiculo.setUf(textUf.getText());
+    	veiculo.setTipoCarroceria(comboTipoCarroceria.getSelectionModel().getSelectedItem());
+    	veiculo.setTipoVeiculo(comboTipoVeiculo.getSelectionModel().getSelectedItem());
+    	veiculo.setModelo(textMarca.getText());
+    	veiculo.setAno(Integer.parseInt(textAno.getText()));
+    	veiculo.setCor(textCor.getText());
+    	veiculo.setCodRenavam(Integer.parseInt(textRenavam.getText()));
+    	veiculo.setKmRodado(Float.parseFloat(textKm.getText()));
+    	veiculo.setCapacidade(Integer.parseInt(textCapacidadeKg.getText()));
+
+    	Main.fachada.salvarVeiculo(veiculo);
 
     }
 

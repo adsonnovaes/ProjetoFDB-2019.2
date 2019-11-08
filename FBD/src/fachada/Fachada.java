@@ -203,6 +203,7 @@ public class Fachada implements IFachada{
 //	Veiculo
 	@Override
 	public void salvarVeiculo(Veiculo veiculo) throws BusinessException {
+		businessVeiculo.salvarVeiculo(veiculo);
 
 	}
 

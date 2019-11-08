@@ -2,14 +2,28 @@ package business;
 
 import java.util.List;
 
+import dao.DaoVeiculo;
+import dao.IDaoVeiculo;
 import exception.BusinessException;
+import exception.DaoException;
 import model.Veiculo;
 
 public class BusinessVeiculo implements IBusinessVeiculo{
 
+	IDaoVeiculo daoVeiculo;
+
+	public BusinessVeiculo(){
+		daoVeiculo = new DaoVeiculo();
+	}
+
 	@Override
 	public void salvarVeiculo(Veiculo veiculo) throws BusinessException {
+		try {
 
+			daoVeiculo.salvarVeiculo(veiculo);
+		} catch (DaoException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

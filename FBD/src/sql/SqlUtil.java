@@ -61,6 +61,25 @@ public class SqlUtil {
 
     }
 
+    public static class Veiculo{
+
+        public static String INSERT_ALL = "INSERT INTO rotasviagens.veiculo "
+                + "(placa,uf,tipo_carroceria,tipo_veiculo,modelo,ano,cor,cod_renavam,kms,capacidade)" +
+                "VALUES (?,?,?,?,?,?,?,?,?,?) ";
+
+        public static String GETALL = "SELECT * FROM rotasviagens.veiculo;";
+
+        public static String DELETE = "DELETE FROM rotasviagens.veiculo WHERE id_veiculo = ?";
+
+        public static String GET = "SELECT * FROM rotasviagens.veiculo where id_veiculo = ?;";
+
+        public static String UPDATE = "update rotasviagens.veiculo set placa = ?, uf = ? ,tipo_carroceria = ?, tipo_veiculo = ?, "
+				+ "modelo = ?, ano = ?, cor = ?, cod_renavam = ?, kms = ?, capacidade = ? where id_veiculo = ?;";
+
+
+
+    }
+
     public static class Rota {
 
         public static final String INSERT_ALL = "insert into rota () "
