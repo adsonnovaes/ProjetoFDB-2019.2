@@ -218,8 +218,8 @@ public class Fachada implements IFachada{
 	}
 
 	@Override
-	public Veiculo buscarVeiculoPlaca(String placa) {
-		return null;
+	public boolean buscarVeiculoPlaca(String placa) {
+		return businessVeiculo.buscarVeiculoPlaca(placa);
 	}
 
 	@Override

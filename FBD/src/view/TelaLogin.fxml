@@ -44,6 +44,16 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </JFXButton>
+            <Label layoutX="268.0" layoutY="456.0" text="copyright © 2019 Adson Novaes" textFill="#fbf9f9">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="300.0" layoutY="478.0" text="Serra Talhada - PE" textFill="#f6f5f5">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

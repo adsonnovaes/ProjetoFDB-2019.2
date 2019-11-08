@@ -37,8 +37,8 @@ public class BusinessVeiculo implements IBusinessVeiculo{
 	}
 
 	@Override
-	public Veiculo buscarVeiculoPlaca(String placa) {
-		return null;
+	public boolean buscarVeiculoPlaca(String placa) {
+		return daoVeiculo.buscarVeiculoPlaca(placa);
 	}
 
 	@Override

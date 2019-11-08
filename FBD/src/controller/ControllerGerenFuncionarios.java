@@ -154,7 +154,10 @@ public class ControllerGerenFuncionarios implements Initializable{
 
 
     @FXML
-    void ShowCancelEdicao(ActionEvent event) {
+    void ShowCancelEdicao(ActionEvent event) throws IOException {
+    	new Mensagem("Operação cancelada com sucesso!");
+		Scene scene = (Scene) ((Node) event.getSource()).getScene();
+    	Util.LoadWindow(getClass().getResource("/view/TelaGerenciarFuncionarios.fxml"), scene, "x");
 
     }
 
@@ -290,12 +293,22 @@ public class ControllerGerenFuncionarios implements Initializable{
     			else if(Funcionario.getCpf().toLowerCase().contains(lowerCaseFilter)){
     				return true;
     			}
-//    			else if(Funcionario.getIdentidade().toString().toLowerCase().contains(lowerCaseFilter)){
-//    				return true;
-//    			}
+    			else if(Integer.toString(Funcionario.getIdentidade()).toLowerCase().contains(lowerCaseFilter)){
+    				return true;
+    			}
+    			else if(Integer.toString(Funcionario.getId()).toLowerCase().contains(lowerCaseFilter)){
+    				return true;
+    			}
+
+    			else if(Integer.toString(Funcionario.getId_endereco()).toLowerCase().contains(lowerCaseFilter)){
+    				return true;
+    			}
+
     			else if(Funcionario.getEmail().toLowerCase().contains(lowerCaseFilter)){
     				return true;
     			}
+
+
 
 
     			return false;
@@ -325,6 +338,9 @@ public class ControllerGerenFuncionarios implements Initializable{
     			else if(Endereco.getRua().toString().toLowerCase().contains(lowerCaseFilter)){
     				return true;
     			}
+    			else if(Integer.toString(Endereco.getNum_casa()).toLowerCase().contains(lowerCaseFilter)){
+    				return true;
+    			}
     			else if(Endereco.getUf().toLowerCase().contains(lowerCaseFilter)){
     				return true;
     			}
@@ -333,6 +349,7 @@ public class ControllerGerenFuncionarios implements Initializable{
     			return false;
     		});
     	});
+
     	SortedList<Endereco> sortedData = new SortedList<>(filteredDataEnd);
     	sortedData.comparatorProperty().bind(tabEndereco.comparatorProperty());
     	tabEndereco.setItems(sortedData);

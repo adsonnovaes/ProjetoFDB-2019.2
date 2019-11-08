@@ -7,13 +7,13 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
-import app.Main;
 import dao.DaoVeiculo;
 import dao.IDaoVeiculo;
 import exception.DaoException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -24,7 +24,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import mensagem.Mensagem;
-import model.Funcionario;
 import model.Veiculo;
 import util.Util;
 
@@ -237,7 +236,47 @@ public class ControllerGerenVeiculo implements Initializable{
     @FXML
     void showSearch(KeyEvent event) {
 
+       	textSearch.textProperty().addListener((observableValue, oldValue,newValue)->{
+    		filteredData.setPredicate(Veiculo->{
+    			if(newValue==null || newValue.isEmpty()){
+    				return true;
+    			}
+    			String lowerCaseFilter = newValue.toLowerCase();
+
+    			if(String.valueOf(Veiculo.getPlaca()).toLowerCase().contains(lowerCaseFilter)){
+    				return true;
+    			}
+    			else if(Veiculo.getModelo().toLowerCase().contains(lowerCaseFilter)){
+    				return true;
+    			}
+    			else if(Integer.toString(Veiculo.getCodRenavam()).toLowerCase().contains(lowerCaseFilter)){
+    				return true;
+    			}
+    			else if(Veiculo.getCor().toLowerCase().contains(lowerCaseFilter)){
+    				return true;
+    			}
+
+    			else if(Veiculo.getTipoVeiculo().toLowerCase().contains(lowerCaseFilter)){
+    				return true;
+    			}
+
+    			else if(Veiculo.getTipoCarroceria().toLowerCase().contains(lowerCaseFilter)){
+    				return true;
+    			}
+
+    			else if(Integer.toString(Veiculo.getAno()).toLowerCase().contains(lowerCaseFilter)){
+    				return true;
+    			}
+
+    			return false;
+    		});
+    	});
+    	SortedList<Veiculo> sortedData = new SortedList<>(filteredData);
+    	sortedData.comparatorProperty().bind(tabGerenVeiculos.comparatorProperty());
+    	tabGerenVeiculos.setItems(sortedData);
+
     }
+
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

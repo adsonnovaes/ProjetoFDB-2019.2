@@ -77,6 +77,9 @@ public class SqlUtil {
 				+ "modelo = ?, ano = ?, cor = ?, cod_renavam = ?, kms = ?, capacidade = ? where id_veiculo = ?;";
 
 
+        public static String GET_PLACA = "SELECT * FROM rotasviagens.veiculo where placa = ?";
+
+
 
     }
 

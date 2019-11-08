@@ -97,8 +97,31 @@ public class DaoVeiculo implements IDaoVeiculo{
 	}
 
 	@Override
-	public Veiculo buscarVeiculoPlaca(String placa) {
-		return null;
+	public boolean buscarVeiculoPlaca(String i) {
+
+        try {
+
+        	this.conexao = SqlConnection.creatConnection();
+			this.statement = conexao.prepareStatement(SqlUtil.Veiculo.GET_PLACA);
+			statement.setString(1, i);
+
+			this.rs = statement.executeQuery();
+
+			if(rs.next()){
+				if(rs.getString("placa").equals(i)){
+					System.out.println(rs.getString("placa").equals(i));
+					return false;
+				}
+
+			}
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+
+		return true;
 	}
 
 	@Override

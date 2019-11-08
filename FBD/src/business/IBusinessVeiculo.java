@@ -10,7 +10,7 @@ public interface IBusinessVeiculo {
 	public void salvarVeiculo(Veiculo veiculo) throws BusinessException;
 	public Veiculo editarVeiculo(Veiculo veiculo) throws BusinessException;
 	public Veiculo buscarVeiculoId(int id) throws BusinessException;
-	public Veiculo buscarVeiculoPlaca(String placa);
+	public boolean buscarVeiculoPlaca(String placa);
 	public List<Veiculo> buscaAll(String i);
 
 }
