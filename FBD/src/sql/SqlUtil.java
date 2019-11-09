@@ -11,6 +11,8 @@ public class SqlUtil {
     public static class Validar{
     	public static String GET_RG = "select distinct f.identidade,m.rg  from rotasviagens.funcionario f join rotasviagens.motorista m where identidade = ? or rg = ?;";
 
+    	public static String VALIDAR_LOGIN = "SELECT email,senha FROM rotasviagens.funcionario where email = ? and senha = ?;";
+
     }
 
     public static class Funcioario {
@@ -93,10 +95,17 @@ public class SqlUtil {
 
     public static class Rota {
 
-        public static final String INSERT_ALL = "insert into rota () "
-                + "values (?,?,?) ";
+        public static String INSERT_ALL = "INSERT INTO rotasviagens.rota "
+                + "(origem,destino,kms,combustivel,tempo_previsto,descricao) VALUES (?,?,?,?,?,?) ";
 
-        public static final String SELECT_ID = "select * from rota where id = ?";
+        public static String GETALL = "SELECT * FROM rotasviagens.rota;";
+
+        public static String DELETE = "DELETE FROM rotasviagens.rota WHERE id_rota = ?";
+
+        public static String GET = "SELECT * FROM rotasviagens.rota where id_rota = ?;";
+
+        public static String UPDATE = "update rotasviagens.rota set origem = ?, destino = ?, kms = ?, combustivel = ?, tempo_previsto = ?, descricao = ? where id_rota = ?;";
+
 
     }
 

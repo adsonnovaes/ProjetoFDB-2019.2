@@ -2,14 +2,28 @@ package business;
 
 import java.util.List;
 
+import dao.DaoRota;
+import dao.IDaoRota;
 import exception.BusinessException;
+import exception.DaoException;
 import model.Rota;
 
 public class BusinessRota implements IBusinessRota{
 
+	private IDaoRota daoRota;
+
+	public BusinessRota(){
+		daoRota = new DaoRota();
+
+	}
+
 	@Override
 	public void salvarRota(Rota rota) throws BusinessException {
-
+		try {
+			daoRota.salvarRota(rota);
+		} catch (DaoException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

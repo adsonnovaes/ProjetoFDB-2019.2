@@ -10,6 +10,7 @@ public interface IDaoFuncionario {
 	public Funcionario EditarFuncionario(Funcionario funcionario) throws DaoException;
 	public Funcionario BuscarFuncionarioID(int id) throws DaoException;
 	public boolean BuscarFuncionarioRg(int rg) throws DaoException;
+	public boolean ValidarLogin(String email,String senha);
 	public void DeleteFuncionario(int id);
 	public void UpdateFuncionario(Funcionario i);
 	public ObservableList<Funcionario> getAllFuncionarios();

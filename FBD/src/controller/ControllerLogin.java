@@ -13,7 +13,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import sql.SqlConnection;
+import mensagem.Mensagem;
 
 public class ControllerLogin {
 
@@ -44,13 +44,16 @@ public class ControllerLogin {
 
     @FXML
     void ShowLogin(ActionEvent event) {
-    	if(passSenha.getText().equalsIgnoreCase(Main.SENHA) && textLogin.getText().equalsIgnoreCase(Main.LOGIN)){
+
+    	boolean validar = Main.fachada.ValidarLogin(textLogin.getText(),passSenha.getText());
+
+    	if(validar){
     		Main.changerScene();
+
     	}else{
 
     		JOptionPane.showMessageDialog(null, "Login ou senha invalido.");
     	}
-
 
     }
 
@@ -66,6 +69,7 @@ public class ControllerLogin {
 
     @FXML
     void ShowSairLogin(ActionEvent event) {
+    	new Mensagem("Encerrando sistema.");
     	System.exit(0);
 
     }

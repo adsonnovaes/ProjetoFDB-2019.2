@@ -136,6 +136,11 @@ public class Fachada implements IFachada{
 		return businessFuncionario.BuscarFuncionarioRg(rg);
 	}
 
+	@Override
+	public boolean ValidarLogin(String email, String senha) {
+		return businessFuncionario.ValidarLogin(email, senha);
+	}
+
 
 
 //	Motorista
@@ -169,6 +174,7 @@ public class Fachada implements IFachada{
 //	Rota
 	@Override
 	public void salvarRota(Rota rota) throws BusinessException {
+		businessRota.salvarRota(rota);
 
 	}
 
@@ -252,6 +258,8 @@ public class Fachada implements IFachada{
 	public List<Viagem> buscaAllViagem(String i) {
 		return null;
 	}
+
+
 
 
 

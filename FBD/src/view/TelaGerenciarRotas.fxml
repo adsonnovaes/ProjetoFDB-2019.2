@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane stylesheets="@../css/darktheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerGerenRotas">
+   <children>
+      <JFXTabPane prefHeight="680.0" prefWidth="1280.0">
+         <tabs>
+            <Tab closable="false" text="Rota">
+               <content>
+                  <Pane prefHeight="630.0" prefWidth="1280.0" style="-fx-background-color: #090e3d;" stylesheets="@../css/darktheme.css">
+                     <children>
+                        <Label layoutX="60.0" layoutY="34.0" text="Gerenciar Rotas:" textFill="#f6f5f5">
+                           <font>
+                              <Font name="System Bold" size="23.0" />
+                           </font>
+                        </Label>
+                        <HBox layoutX="60.0" layoutY="544.0" spacing="40.0">
+                           <children>
+                              <JFXButton fx:id="btnDeletar" onAction="#ShowDelete" prefHeight="39.0" prefWidth="76.0" ripplerFill="#982b2b" text="Deletar" textFill="#efebeb">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                        <TableView fx:id="tabGerenRotas" layoutX="60.0" layoutY="148.0" prefHeight="355.0" prefWidth="1076.0">
+                           <columns>
+                              <TableColumn fx:id="colId" prefWidth="66.0" text="Id" />
+                              <TableColumn fx:id="colOrigem" prefWidth="132.3333740234375" text="Origem" />
+                              <TableColumn fx:id="colDestino" prefWidth="130.6666259765625" text="Destino" />
+                              <TableColumn fx:id="colKm" prefWidth="138.33331298828125" text="Km" />
+                              <TableColumn fx:id="colCombustivel" prefWidth="172.3333740234375" text="Combustível" />
+                              <TableColumn fx:id="colTempo" prefWidth="166.0" text="Tempo previsto" />
+                              <TableColumn fx:id="colDescricao" prefWidth="266.0" text="Descrição" />
+                           </columns>
+                        </TableView>
+                        <HBox layoutX="50.0" layoutY="98.0" prefHeight="47.0" prefWidth="642.0">
+                           <children>
+                              <JFXTextField fx:id="textSearch" maxWidth="658.0" minWidth="390.0" onKeyPressed="#showSearch" prefHeight="43.0" prefWidth="658.0" promptText="Digite alguma informação" />
+                           </children>
+                        </HBox>
+                        <Label layoutX="60.0" layoutY="511.0" text="* Para deletar uma rota é necessário selecionar a linha desejada.">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Editar">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutY="-14.0" prefHeight="682.0" prefWidth="1280.0" style="-fx-background-color: #090e3d;" stylesheets="@../css/darktheme.css">
+                           <children>
+                              <Label layoutX="61.0" layoutY="43.0" text="Editar informações:" textFill="#f6f5f5">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                              <HBox layoutX="553.0" layoutY="573.0" spacing="40.0">
+                                 <children>
+                                    <JFXButton fx:id="btnSalvarAlt" onAction="#ShowSalvarAlteracoes" prefHeight="39.0" prefWidth="94.0" ripplerFill="#f4f3f3" text="Salvar" textFill="#efebeb">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </JFXButton>
+                                    <JFXButton fx:id="btnCancelarEdicao" onAction="#ShowCancelEdicao" prefHeight="39.0" prefWidth="94.0" ripplerFill="#f4f3f3" text="Cancelar" textFill="#efebeb">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                              <Label layoutX="61.0" layoutY="138.0" text="ID:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <HBox layoutX="208.0" layoutY="129.0">
+                                 <children>
+                                    <JFXTextField fx:id="textIdRota" maxWidth="219.0" minWidth="41.0" prefHeight="43.0" prefWidth="66.0" promptText="ID" />
+                                    <JFXButton fx:id="btnIdRota" onAction="#showBuscarRota" text="OK" />
+                                 </children>
+                              </HBox>
+                              <Label layoutX="58.0" layoutY="201.0" text="Origem:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="textNewOrigem" layoutX="208.0" layoutY="186.0" maxWidth="222.0" minWidth="199.0" prefHeight="43.0" prefWidth="219.0" promptText="Digite a nova origem" />
+                              <Label layoutX="58.0" layoutY="266.0" text="Destino:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="textNewDestino" layoutX="208.0" layoutY="250.0" maxWidth="219.0" minWidth="199.0" prefHeight="43.0" prefWidth="219.0" promptText="Digite o novo destino" />
+                              <Label layoutX="465.0" layoutY="201.0" text="Km's:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="textNewKm" layoutX="617.0" layoutY="186.0" maxWidth="233.0" minWidth="199.0" prefHeight="43.0" prefWidth="233.0" promptText="Digite a nova kilometragem" />
+                              <Label layoutX="465.0" layoutY="265.0" text="Combustível:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="textNewCombustivel" layoutX="619.0" layoutY="250.0" maxWidth="233.0" minWidth="199.0" prefHeight="43.0" prefWidth="233.0" promptText="Digite o combustível gasto" />
+                              <HBox layoutX="558.0" layoutY="129.0" />
+                              <Label layoutX="58.0" layoutY="328.0" text="Descrição:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="465.0" layoutY="323.0" text="Tempo Previsto:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="textNewTempo" layoutX="616.0" layoutY="307.0" maxWidth="236.0" minWidth="199.0" prefHeight="43.0" prefWidth="236.0" promptText="Digite o novo tempo previsto" />
+                              <TextArea fx:id="areaNewDescricao" layoutX="58.0" layoutY="375.0" prefHeight="139.0" prefWidth="271.0" promptText="Digite a nova descrição">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </TextArea>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>

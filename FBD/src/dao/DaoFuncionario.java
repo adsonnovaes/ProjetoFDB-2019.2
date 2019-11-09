@@ -185,5 +185,31 @@ public class DaoFuncionario implements IDaoFuncionario{
 		return true;
 	}
 
+	@Override
+	public boolean ValidarLogin(String email, String senha) {
+		 try {
+	        	this.conexao = SqlConnection.creatConnection();
+				this.statement = conexao.prepareStatement(SqlUtil.Validar.VALIDAR_LOGIN);
+				statement.setString(1, email);
+				statement.setString(2, senha);
+
+				this.rs = statement.executeQuery();
+				if(rs.next()){
+					if(rs.getString("email").equalsIgnoreCase(email)
+					   && rs.getString("senha").equalsIgnoreCase(senha)){
+						return true;
+					}
+
+				}
+
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+
+			}
+
+			return false;
+	}
+
 
 }

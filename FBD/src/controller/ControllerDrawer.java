@@ -165,8 +165,9 @@ public class ControllerDrawer implements Initializable{
     }
 
     @FXML
-    void ShowRotas(ActionEvent event) {
-
+    void ShowRotas(ActionEvent event) throws IOException {
+    	Scene scene = (Scene) ((Node) event.getSource()).getScene();
+    	Util.LoadWindow(getClass().getResource("/view/TelaGerenciarRotas.fxml"), scene, "x");
     }
 
     @FXML

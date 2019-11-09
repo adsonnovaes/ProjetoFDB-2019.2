@@ -47,8 +47,8 @@
                <children>
                   <StackPane prefHeight="51.0" prefWidth="45.0">
                      <children>
-                        <FontAwesomeIconView fill="WHITE" glyphName="CIRCLE_ALT" size="60" />
                         <FontAwesomeIconView fill="WHITE" glyphName="USER" size="30" />
+                        <FontAwesomeIconView fill="WHITE" glyphName="CIRCLE_ALT" size="60" />
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -62,17 +62,6 @@
                         <FontAwesomeIconView fx:id="icon_arrow" fill="WHITE" glyphName="CHEVRON_UP" size="25" />
                      </graphic>
                   </Button>
-                  <Button fx:id="btnGenVeiculos" alignment="BASELINE_LEFT" defaultButton="true" focusTraversable="false" graphicTextGap="27.0" mnemonicParsing="false" onAction="#ShowVeiculos" prefHeight="33.0" prefWidth="250.0" styleClass="options-btn" text="Gerenciar Veículos" textFill="WHITE">
-                     <font>
-                        <Font name="Verdana" size="12.0" />
-                     </font>
-                     <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="TRUCK" size="18" />
-                     </graphic>
-                     <VBox.margin>
-                        <Insets right="20.0" />
-                     </VBox.margin>
-                  </Button>
                   <Button fx:id="btnGenFuncionarios" alignment="BASELINE_LEFT" defaultButton="true" focusTraversable="false" graphicTextGap="30.0" mnemonicParsing="false" onAction="#ShowFuncionarios" prefHeight="41.0" prefWidth="257.0" styleClass="options-btn" text="Gerenciar Funcionarios" textFill="WHITE">
                      <font>
                         <Font name="Verdana" size="12.0" />
@@ -84,23 +73,23 @@
                         <Insets right="20.0" />
                      </VBox.margin>
                   </Button>
+                  <Button fx:id="btnGenVeiculos" alignment="BASELINE_LEFT" defaultButton="true" focusTraversable="false" graphicTextGap="27.0" mnemonicParsing="false" onAction="#ShowVeiculos" prefHeight="33.0" prefWidth="250.0" styleClass="options-btn" text="Gerenciar Veículos" textFill="WHITE">
+                     <font>
+                        <Font name="Verdana" size="12.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="TRUCK" size="18" />
+                     </graphic>
+                     <VBox.margin>
+                        <Insets right="20.0" />
+                     </VBox.margin>
+                  </Button>
                   <Button fx:id="btnGenRotas" alignment="BASELINE_LEFT" defaultButton="true" focusTraversable="false" graphicTextGap="30.0" mnemonicParsing="false" onAction="#ShowRotas" prefHeight="33.0" prefWidth="250.0" styleClass="options-btn" text="Gerenciar Rotas" textFill="WHITE">
                      <font>
                         <Font name="Verdana" size="12.0" />
                      </font>
                      <graphic>
                         <FontAwesomeIconView fill="WHITE" glyphName="ROAD" size="18" />
-                     </graphic>
-                     <VBox.margin>
-                        <Insets right="20.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button fx:id="btnGenViagens" alignment="BASELINE_LEFT" defaultButton="true" focusTraversable="false" graphicTextGap="30.0" mnemonicParsing="false" onAction="#ShowViagem" prefHeight="33.0" prefWidth="250.0" styleClass="options-btn" text="Gerenciar Viagens" textFill="WHITE">
-                     <font>
-                        <Font name="Verdana" size="12.0" />
-                     </font>
-                     <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="MAP_SIGNS" size="18" />
                      </graphic>
                      <VBox.margin>
                         <Insets right="20.0" />
@@ -121,6 +110,17 @@
                      <graphic>
                         <FontAwesomeIconView fill="WHITE" glyphName="ARCHIVE" size="18" />
                      </graphic>
+                  </Button>
+                  <Button fx:id="btnGenViagens" alignment="BASELINE_LEFT" defaultButton="true" focusTraversable="false" graphicTextGap="30.0" mnemonicParsing="false" onAction="#ShowViagem" prefHeight="33.0" prefWidth="250.0" styleClass="options-btn" text="Gerenciar Viagens" textFill="WHITE">
+                     <font>
+                        <Font name="Verdana" size="12.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="MAP_SIGNS" size="18" />
+                     </graphic>
+                     <VBox.margin>
+                        <Insets right="20.0" />
+                     </VBox.margin>
                   </Button>
                   <Button fx:id="btnCaixa" alignment="BASELINE_LEFT" defaultButton="true" focusTraversable="false" graphicTextGap="28.0" mnemonicParsing="false" onAction="#ShowCaixa" prefHeight="33.0" prefWidth="250.0" styleClass="options-btn" text="Caixa" textFill="WHITE">
                      <font>

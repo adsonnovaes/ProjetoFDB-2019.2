@@ -43,7 +43,7 @@ public class Rota {
 	public void setKm(float km) {
 		this.kms = km;
 	}
-	public float getCombustivel() {
+	public int getCombustivel() {
 		return combustivel;
 	}
 	public void setCombustivel(int combustivel) {

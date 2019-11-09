@@ -61,4 +61,9 @@ public class BusinessFuncionario implements IBusinessFuncionario{
 		return daoFuncionario.BuscarFuncionarioRg(rg);
 	}
 
+	@Override
+	public boolean ValidarLogin(String email, String senha) {
+		return daoFuncionario.ValidarLogin(email, senha);
+	}
+
 }
