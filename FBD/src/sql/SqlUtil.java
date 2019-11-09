@@ -8,6 +8,11 @@ public class SqlUtil {
     public static String USUARIO = "root";
     public static String SENHA = "adson";
 
+    public static class Validar{
+    	public static String GET_RG = "select distinct f.identidade,m.rg  from rotasviagens.funcionario f join rotasviagens.motorista m where identidade = ? or rg = ?;";
+
+    }
+
     public static class Funcioario {
 
 
@@ -23,7 +28,8 @@ public class SqlUtil {
         public static String UPDATE = "update rotasviagens.funcionario set nome = ?, cpf = ?, identidade = ?, email = ?"
         								+ "where id = ?;";
 
-        public static String GET_RG = "select f.identidade,m.rg  from rotasviagens.funcionario f join rotasviagens.motorista m where identidade = ? or rg = ?;";
+
+//        public static String GET_CPF = "select distinct f.cpf,m.cpf  from rotasviagens.funcionario f join rotasviagens.motorista m where cpf = ? or cpf = ?;";
 
     }
 

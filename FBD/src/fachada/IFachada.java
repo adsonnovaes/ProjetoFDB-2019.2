@@ -37,7 +37,7 @@ public interface IFachada {
 	public void SalvarMotorista(Motorista motorista) throws BusinessException;
 	public Motorista EditarMotorista(Motorista motorista) throws BusinessException;
 	public Motorista BuscarMotoristaID(int id) throws BusinessException;
-	public Motorista BuscarMotoristaCpf(String cpf) throws BusinessException;
+	public boolean BuscarMotoristaRg(int rg) throws DaoException;
     public List<Motorista> buscarPorBusca(String busca);
 
 //  Rotas

@@ -56,7 +56,6 @@ public class BusinessFuncionario implements IBusinessFuncionario{
 
 	}
 
-
 	@Override
 	public boolean BuscarFuncionarioRg(int rg) throws DaoException {
 		return daoFuncionario.BuscarFuncionarioRg(rg);

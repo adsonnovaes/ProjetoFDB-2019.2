@@ -60,13 +60,13 @@ public class BusinessMotorista implements IBusinessMotorista{
 	}
 
 	@Override
-	public Motorista buscarPorCpf(String identidade) throws BusinessException {
+	public List<Motorista> buscarPorBusca(String busca) {
 		return null;
 	}
 
 	@Override
-	public List<Motorista> buscarPorBusca(String busca) {
-		return null;
+	public boolean BuscarMotoristaRg(int rg) throws DaoException {
+		return daoMotorista.BuscarMotoristaRg(rg);
 	}
 
 }

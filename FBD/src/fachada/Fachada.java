@@ -156,8 +156,8 @@ public class Fachada implements IFachada{
 	}
 
 	@Override
-	public Motorista BuscarMotoristaCpf(String cpf) throws BusinessException {
-		return null;
+	public boolean BuscarMotoristaRg(int rg) throws DaoException {
+		return businessMotorista.BuscarMotoristaRg(rg);
 	}
 
 	@Override

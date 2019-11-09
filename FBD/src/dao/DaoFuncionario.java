@@ -164,7 +164,7 @@ public class DaoFuncionario implements IDaoFuncionario{
 
         try {
         	this.conexao = SqlConnection.creatConnection();
-			this.statement = conexao.prepareStatement(SqlUtil.Funcioario.GET_RG);
+			this.statement = conexao.prepareStatement(SqlUtil.Validar.GET_RG);
 			statement.setInt(1, rg);
 			statement.setInt(2, rg);
 

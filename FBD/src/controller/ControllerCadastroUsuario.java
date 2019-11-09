@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -13,13 +15,14 @@ import exception.DaoException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import mensagem.Mensagem;
 import model.Endereco;
 import model.Funcionario;
 
-public class ControllerCadastroUsuario {
+public class ControllerCadastroUsuario implements Initializable{
 
     @FXML
     private AnchorPane Content;
@@ -61,7 +64,7 @@ public class ControllerCadastroUsuario {
     private JFXTextField textBairro;
 
     @FXML
-    private JFXTextField textnumCasa;
+    private JFXTextField textCasa;
 
     @FXML
     private JFXTextField textUf;
@@ -75,7 +78,7 @@ public class ControllerCadastroUsuario {
     	textNome.clear();
     	textRua.clear();
     	textCidade.clear();
-    	textnumCasa.clear();
+    	textCasa.clear();
     	textUf.clear();
 
 		Pane ap = FXMLLoader.load(getClass().getResource("/view/TelaLogin.fxml"));
@@ -89,18 +92,20 @@ public class ControllerCadastroUsuario {
     @FXML
     void ShowConfirmar(ActionEvent event) throws BusinessException, DaoException, IOException {
 
-    	boolean validar = Main.fachada.BuscarFuncionarioRg(Integer.parseInt(textRg.getText()));
-    	if(validar){
+    	boolean validarRg = Main.fachada.BuscarFuncionarioRg(Integer.parseInt(textRg.getText()));
+//    	boolean validarCpf = Main.fachada.BuscarFuncionarioCpf(textRg.getText());
+    	if(validarRg){
 	    	if(textLogin.getText().length() < 0 || textCpf.getText().length() < 11 || passSenha.getText().length() < 0
 	    		|| textNome.getText().length() < 0 )
 	    	{
 	    		new ControllerException("Complete todos os campos corretamente.");
 	    	}else{
 
+
 	    		Endereco end = new Endereco();
 	    		end.setBairro(textBairro.getText());
 	    		end.setCidade(textCidade.getText());
-	    		end.setNum_casa(Integer.parseInt(textnumCasa.getText()));
+	    		end.setNum_casa(Integer.parseInt(textCasa.getText()));
 	    		end.setRua(textRua.getText());
 	    		end.setUf(textUf.getText());
 
@@ -124,14 +129,56 @@ public class ControllerCadastroUsuario {
 
 
     	}else{
-    		new Mensagem("Essa identidade ou cpf já consta no sistema.");
+    		new Mensagem("Essa identidade já consta no sistema.");
     	}
     }
 
-    @FXML
-    void ShowRetornar(ActionEvent event) throws IOException {
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+
+		textCpf.textProperty().addListener((observable,oldValue,newValue) -> {
+
+				if(newValue.length() > 11){
+					textCpf.setText(oldValue);
+					}
+				if (!newValue.matches("\\d*")) {
+					textCpf.setText(oldValue);
+				}
+			});
+
+		textRg.textProperty().addListener((observable,oldValue,newValue) -> {
+
+				if(newValue.length() > 7){
+					textRg.setText(oldValue);
+					}
+				if (!newValue.matches("\\d*")) {
+					textRg.setText(oldValue);
+				}
+		});
+
+		textCasa.textProperty().addListener((observable,oldValue,newValue) -> {
+
+				if(newValue.length() > 7){
+					textCasa.setText(oldValue);
+					}
+				if (!newValue.matches("\\d*")) {
+					textCasa.setText(oldValue);
+				}
+		});
+
+		textUf.textProperty().addListener((observable,oldValue,newValue) -> {
+
+				if(newValue.length() > 2){
+					textUf.setText(oldValue);
+					}
+
+				if (newValue.matches("\\d+")) {
+					textUf.setText(oldValue);
+				}
+		});
+	}
 
 
-    }
+
 
 }

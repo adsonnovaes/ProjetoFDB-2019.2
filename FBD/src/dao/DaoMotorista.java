@@ -89,8 +89,29 @@ public class DaoMotorista implements IDaoMotorista{
 	}
 
 	@Override
-	public Motorista BuscarMotoristaCpf(String cpf) throws DaoException {
-		return null;
+	public boolean BuscarMotoristaRg(int rg) throws DaoException {
+
+		try {
+        	this.conexao = SqlConnection.creatConnection();
+			this.statement = conexao.prepareStatement(SqlUtil.Validar.GET_RG);
+			statement.setInt(1, rg);
+			statement.setInt(2, rg);
+
+			this.rs = statement.executeQuery();
+			if(rs.next()){
+				if(rs.getInt("identidade") == rg || rs.getInt("rg") == rg){
+					return false;
+				}
+
+			}
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+
+		return true;
 	}
 
 	@Override
