@@ -2,8 +2,6 @@ package controller;
 
 import java.net.URL;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
@@ -12,14 +10,12 @@ import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
 import app.Main;
-import dao.DaoCarga;
 import exception.BusinessException;
 import exception.DaoException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import mensagem.Mensagem;
 import model.Carga;
 
 public class ControllerCadastroCarga implements Initializable{

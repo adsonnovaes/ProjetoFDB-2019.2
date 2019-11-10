@@ -94,13 +94,44 @@ public class DaoCarga implements IDaoCarga{
 
 	@Override
 	public void DeleteCarga(int id) {
-		// TODO Auto-generated method stub
+        try {
+
+        	this.conexao = SqlConnection.creatConnection();
+			this.statement = conexao.prepareStatement(SqlUtil.Carga.DELETE);
+
+			statement.setInt(1, id);
+
+			statement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	@Override
 	public void UpdateCarga(Carga i) {
-		// TODO Auto-generated method stub
+
+        try {
+        	this.conexao = SqlConnection.creatConnection();
+			this.statement = conexao.prepareStatement(SqlUtil.Carga.UPDATE);
+
+            statement.setString(1, i.getTipo());
+            statement.setInt(2, i.getQuantidadeUni());
+            statement.setFloat(3, i.getPesoTotal());
+            statement.setFloat(4, i.getValorTotal());
+            statement.setDate(5, i.getFabricacao());
+            statement.setDate(6,i.getValidade());
+            statement.setString(7, i.getDescricao());
+	        statement.setInt(8, i.getId());
+
+	        statement.execute();
+
+	        this.conexao.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 

@@ -116,7 +116,11 @@ public class SqlUtil {
 
         public static String GETALL = "SELECT * FROM rotasviagens.carga;";
 
+        public static String DELETE = "DELETE FROM rotasviagens.carga WHERE id_carga = ?";
+
         public static String GET = "SELECT * FROM rotasviagens.carga where id_carga = ?;";
+
+        public static String UPDATE = "update rotasviagens.carga set tipo = ?, quantidade_uni = ?, peso_total = ?, valor_total = ?, fabricacao = ?, validade = ?, descricao = ? where id_carga = ?;";
     }
 
 
