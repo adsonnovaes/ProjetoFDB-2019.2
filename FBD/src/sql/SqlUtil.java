@@ -109,9 +109,14 @@ public class SqlUtil {
 
     }
 
-    public static class Caixa{
+    public static class Carga{
 
-    	public static final String BUSCA = "select ";
+        public static String INSERT_ALL = "INSERT INTO rotasviagens.carga "
+                + "(tipo,quantidade_uni,peso_total,valor_total,fabricacao,validade,descricao) VALUES (?,?,?,?,?,?,?) ";
+
+        public static String GETALL = "SELECT * FROM rotasviagens.carga;";
+
+        public static String GET = "SELECT * FROM rotasviagens.carga where id_carga = ?;";
     }
 
 

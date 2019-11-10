@@ -58,18 +58,7 @@ public class BusinessCarga implements IBusinessCarga{
 
 	@Override
 	public Carga BuscarCargaExpecifica(String carga) throws BusinessException{
-		Carga busca = null;
-
-		try {
-
-			busca = this.daoCarga.BuscarCargaExpecifica(carga);
-
-
-		} catch (Exception e) {
-			throw new BusinessException("Erro!Não possível concluir a ação.");
-		}
-
-		return busca;
+		return null;
 	}
 
 	@Override

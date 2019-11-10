@@ -63,7 +63,7 @@ public class Fachada implements IFachada{
 //	Carga
 	@Override
 	public void SalvarCarga(Carga carga) throws BusinessException {
-
+		businessCarga.SalvarCarga(carga);
 	}
 
 	@Override

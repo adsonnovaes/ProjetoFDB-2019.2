@@ -142,7 +142,8 @@ public class ControllerDrawer implements Initializable{
 
     @FXML
     void ShowCarga(ActionEvent event) throws IOException {
-
+       	Scene scene = (Scene) ((Node) event.getSource()).getScene();
+    	Util.LoadWindow(getClass().getResource("/view/TelaGerenciarCargas.fxml"), scene, "x");
 
     }
 
