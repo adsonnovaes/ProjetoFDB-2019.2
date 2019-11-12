@@ -1,8 +1,7 @@
 package dao;
 
-import java.util.List;
-
 import exception.DaoException;
+import javafx.collections.ObservableList;
 import model.Viagem;
 
 public interface IDaoViagem {
@@ -10,8 +9,8 @@ public interface IDaoViagem {
 	public void salvarViagem(Viagem viagem) throws DaoException;
 	public Viagem editarViagem(Viagem viagem) throws DaoException;
 	public Viagem buscarViagemId(int id) throws DaoException;
-	public Viagem buscarCidade(String cidade);
-	public Viagem buscarCargaViagem(String carga);
-	public List<Viagem> buscaAll(String i);
+	public void DeleteViagem(int id);
+	public void UpdateViagem(Viagem i);
+	public ObservableList<Viagem> getAllViagem();
 
 }

@@ -73,7 +73,7 @@ public class Fachada implements IFachada{
 
 	@Override
 	public Carga BuscarCargaID(int id) throws BusinessException {
-		return null;
+		return businessCarga.BuscarCargaID(id);
 	}
 
 	@Override
@@ -166,6 +166,11 @@ public class Fachada implements IFachada{
 	}
 
 	@Override
+	public Motorista buscarMotoristaIden(int rg) throws DaoException {
+		return businessMotorista.buscarMotoristaIden(rg);
+	}
+
+	@Override
 	public List<Motorista> buscarPorBusca(String busca) {
 		return null;
 	}
@@ -185,7 +190,7 @@ public class Fachada implements IFachada{
 
 	@Override
 	public Rota buscarRotaId(int id) throws BusinessException {
-		return null;
+		return businessRota.buscarRotaId(id);
 	}
 
 	@Override
@@ -223,6 +228,11 @@ public class Fachada implements IFachada{
 	}
 
 	@Override
+	public Veiculo buscarVeiculoPlacaE(String placa) {
+		return businessVeiculo.buscarVeiculoPlacaE(placa);
+	}
+
+	@Override
 	public List<Veiculo> buscaAllVeiculo(String i) {
 		return null;
 	}
@@ -231,6 +241,7 @@ public class Fachada implements IFachada{
 //	Viagem
 	@Override
 	public void salvarViagem(Viagem viagem) throws BusinessException {
+		businessViagem.salvarViagem(viagem);
 
 	}
 
@@ -258,6 +269,10 @@ public class Fachada implements IFachada{
 	public List<Viagem> buscaAllViagem(String i) {
 		return null;
 	}
+
+
+
+
 
 
 

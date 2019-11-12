@@ -178,8 +178,9 @@ public class ControllerDrawer implements Initializable{
     }
 
     @FXML
-    void ShowViagem(ActionEvent event) {
-
+    void ShowViagem(ActionEvent event) throws IOException {
+    	Scene scene = (Scene) ((Node) event.getSource()).getScene();
+    	Util.LoadWindow(getClass().getResource("/view/TelaGerenciarViagens.fxml"), scene, "x");
     }
 
 

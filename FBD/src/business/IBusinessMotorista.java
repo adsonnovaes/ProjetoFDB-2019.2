@@ -13,6 +13,7 @@ public interface IBusinessMotorista {
 	public void EditarMotorista(Motorista motorista) throws BusinessException;
     public Motorista buscarPorId(int id)throws BusinessException;
     public boolean BuscarMotoristaRg(int rg) throws DaoException;
+	public Motorista buscarMotoristaIden(int rg) throws DaoException;
     public List<Motorista> buscarPorBusca(String busca);
 
 

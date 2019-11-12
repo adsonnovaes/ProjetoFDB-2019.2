@@ -69,4 +69,9 @@ public class BusinessMotorista implements IBusinessMotorista{
 		return daoMotorista.BuscarMotoristaRg(rg);
 	}
 
+	@Override
+	public Motorista buscarMotoristaIden(int rg) throws DaoException {
+		return daoMotorista.buscarMotoristaIden(rg);
+	}
+
 }

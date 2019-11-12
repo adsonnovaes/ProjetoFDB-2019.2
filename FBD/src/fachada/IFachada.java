@@ -38,6 +38,7 @@ public interface IFachada {
 	public void SalvarMotorista(Motorista motorista) throws BusinessException;
 	public Motorista EditarMotorista(Motorista motorista) throws BusinessException;
 	public Motorista BuscarMotoristaID(int id) throws BusinessException;
+	public Motorista buscarMotoristaIden(int rg) throws DaoException;
 	public boolean BuscarMotoristaRg(int rg) throws DaoException;
     public List<Motorista> buscarPorBusca(String busca);
 
@@ -53,6 +54,7 @@ public interface IFachada {
 	public Veiculo editarVeiculo(Veiculo veiculo) throws BusinessException;
 	public Veiculo buscarVeiculoId(int id) throws BusinessException;
 	public boolean buscarVeiculoPlaca(String placa);
+	public Veiculo buscarVeiculoPlacaE(String placa);
 	public List<Veiculo> buscaAllVeiculo(String i);
 
 //	Viagem

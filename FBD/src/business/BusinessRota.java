@@ -33,6 +33,13 @@ public class BusinessRota implements IBusinessRota{
 
 	@Override
 	public Rota buscarRotaId(int id) throws BusinessException {
+		try {
+
+			return daoRota.buscarRotaId(id);
+
+		} catch (DaoException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 

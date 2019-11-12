@@ -10,6 +10,7 @@ public interface IDaoVeiculo {
 	public Veiculo editarVeiculo(Veiculo veiculo) throws DaoException;
 	public Veiculo buscarVeiculoId(int id) throws DaoException;
 	public boolean buscarVeiculoPlaca(String placa);
+	public Veiculo buscarVeiculoPlacaE(String placa);
 	public void DeleteVeiculo(int id);
 	public void UpdateVeiculo(Veiculo i);
 	public ObservableList<Veiculo> getAllVeiculo();

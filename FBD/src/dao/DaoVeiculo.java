@@ -109,7 +109,6 @@ public class DaoVeiculo implements IDaoVeiculo{
 
 			if(rs.next()){
 				if(rs.getString("placa").equals(i)){
-					System.out.println(rs.getString("placa").equals(i));
 					return false;
 				}
 
@@ -211,6 +210,34 @@ public class DaoVeiculo implements IDaoVeiculo{
 
 		ObservableList<Veiculo> obs = FXCollections.observableList(veiculos);
 		return obs;
+	}
+
+	@Override
+	public Veiculo buscarVeiculoPlacaE(String placa) {
+		Veiculo car = new Veiculo();
+
+		try {
+
+			this.conexao = SqlConnection.creatConnection();
+			this.statement = conexao.prepareStatement(SqlUtil.Veiculo.GET_PLACA);
+			statement.setString(1, placa);
+
+			this.rs = statement.executeQuery();
+
+			if(rs != null && rs.next()){
+
+				car.setId(rs.getInt("id_veiculo"));
+				car.setModelo(rs.getString("modelo"));
+
+
+			}
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return car;
 	}
 
 

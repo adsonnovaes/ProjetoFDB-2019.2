@@ -29,7 +29,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import mensagem.Mensagem;
 import model.Carga;
-import model.Veiculo;
 import util.Util;
 
 public class ControllerGerenCarga implements Initializable{

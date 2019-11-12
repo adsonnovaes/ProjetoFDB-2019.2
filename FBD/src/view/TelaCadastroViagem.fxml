@@ -2,17 +2,17 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXDatePicker?>
-<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane stylesheets="@../css/darktheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerCadastroViagem">
+<AnchorPane prefHeight="669.0" prefWidth="1283.0" stylesheets="@../css/darktheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerCadastroViagem">
    <children>
-      <Pane layoutX="-14.0" prefHeight="669.0" prefWidth="1280.0" style="-fx-background-color: #090e3d;" stylesheets="@../css/darktheme.css">
+      <Pane layoutX="-14.0" prefHeight="669.0" prefWidth="1298.0" style="-fx-background-color: #090e3d;" stylesheets="@../css/darktheme.css">
          <children>
             <Label layoutX="61.0" layoutY="34.0" text="Cadastrar Viagem:" textFill="#f6f5f5">
                <font>
@@ -24,19 +24,29 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textVeiculo" layoutX="180.0" layoutY="181.0" maxWidth="220.0" minWidth="159.0" prefHeight="43.0" prefWidth="220.0" promptText="Digite a placa do veículo" unFocusColor="#fdfafa" />
+            <HBox layoutX="180.0" layoutY="181.0" prefHeight="43.0" prefWidth="301.0">
+               <children>
+                  <JFXTextField fx:id="textVeiculo" maxWidth="255.0" minWidth="159.0" prefHeight="43.0" prefWidth="251.0" promptText="Digite a placa do veículo" unFocusColor="#fdfafa" />
+                  <JFXButton fx:id="btnVeiculo" onAction="#showBuscarVeiculo" prefHeight="39.0" prefWidth="50.0" text="Ok" />
+               </children>
+            </HBox>
             <Label layoutX="64.0" layoutY="129.0" text="Motorista:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="67.0" layoutY="250.0" text="Rota:" textFill="#f6f5f5">
+            <Label layoutX="67.0" layoutY="254.0" text="Rota:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textIdRota" layoutX="180.0" layoutY="241.0" maxWidth="178.0" minWidth="119.0" prefHeight="43.0" prefWidth="155.0" promptText="Digite o ID da rota" unFocusColor="#fdfafa" />
-            <Label layoutX="473.0" layoutY="129.0" text="Data da saída:" textFill="#f6f5f5">
+            <HBox layoutX="180.0" layoutY="245.0">
+               <children>
+                  <JFXTextField fx:id="textIdRota" maxWidth="178.0" minWidth="119.0" prefHeight="43.0" prefWidth="168.0" promptText="Digite o ID da rota" unFocusColor="#fdfafa" />
+                  <JFXButton fx:id="btnRota" onAction="#showBuscarRota" prefHeight="39.0" prefWidth="50.0" text="Ok" />
+               </children>
+            </HBox>
+            <Label layoutX="537.0" layoutY="390.0" text="Data da saída:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -46,7 +56,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="473.0" layoutY="190.0" text="Data de chegada:" textFill="#f6f5f5">
+            <Label layoutX="537.0" layoutY="443.0" text="Data de chegada:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -65,22 +75,47 @@
                   </JFXButton>
                </children>
             </HBox>
-            <JFXTextArea fx:id="areaDescricao" layoutX="65.0" layoutY="437.0" maxWidth="302.0" minWidth="302.0" prefHeight="129.0" prefWidth="302.0" unFocusColor="WHITE" />
-            <JFXDatePicker fx:id="dateSaida" defaultColor="BLACK" editable="false" layoutX="609.0" layoutY="120.0" prefHeight="25.0" prefWidth="168.0" promptText="23/03/2019" stylesheets="@../css/darktheme.css" />
-            <JFXDatePicker fx:id="dateChegada" defaultColor="BLACK" editable="false" layoutX="609.0" layoutY="181.0" prefHeight="25.0" prefWidth="168.0" promptText="23/03/2019" stylesheets="@../css/darktheme.css" />
-            <JFXTextField fx:id="textMotorista" layoutX="178.0" layoutY="120.0" maxWidth="266.0" minWidth="159.0" prefHeight="43.0" prefWidth="220.0" promptText="Digite o cpf do motorista" unFocusColor="#fdfafa" />
+            <JFXDatePicker fx:id="dateSaida" defaultColor="BLACK" editable="false" layoutX="673.0" layoutY="381.0" prefHeight="25.0" prefWidth="168.0" promptText="23/03/2019" stylesheets="@../css/darktheme.css" />
+            <JFXDatePicker fx:id="dateChegada" defaultColor="BLACK" editable="false" layoutX="673.0" layoutY="434.0" prefHeight="25.0" prefWidth="168.0" promptText="23/03/2019" stylesheets="@../css/darktheme.css" />
+            <HBox layoutX="178.0" layoutY="120.0" prefHeight="43.0" prefWidth="301.0">
+               <children>
+                  <JFXTextField fx:id="textMotorista" maxWidth="266.0" minWidth="159.0" prefHeight="43.0" prefWidth="252.0" promptText="Digite a identidade do motorista" unFocusColor="#fdfafa" />
+                  <JFXButton fx:id="btnMotorista" onAction="#showBuscarMotorista" prefHeight="39.0" prefWidth="50.0" text="Ok" />
+               </children>
+            </HBox>
             <Label layoutX="67.0" layoutY="322.0" text="Carga:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textCarga" layoutX="180.0" layoutY="313.0" maxWidth="178.0" minWidth="119.0" prefHeight="43.0" prefWidth="124.0" promptText="Digite a carga" unFocusColor="#fdfafa" />
-            <Label fx:id="textStatus" layoutX="473.0" layoutY="250.0" text="Status:" textFill="#f6f5f5">
+            <HBox layoutX="180.0" layoutY="311.0">
+               <children>
+                  <JFXTextField fx:id="textIdCarga" maxWidth="178.0" minWidth="119.0" prefHeight="43.0" prefWidth="168.0" promptText="Digite o ID da Carga" unFocusColor="#fdfafa" />
+                  <JFXButton fx:id="btnCarga" onAction="#showBuscarCarga" prefHeight="39.0" prefWidth="50.0" text="Ok" />
+               </children>
+            </HBox>
+            <Label layoutX="537.0" layoutY="501.0" text="Status:" textFill="#f6f5f5">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="textCarga1" layoutX="603.0" layoutY="242.0" maxWidth="178.0" minWidth="119.0" prefHeight="43.0" prefWidth="155.0" promptText="Digite o status" unFocusColor="#fdfafa" />
+            <TextArea fx:id="areaDescricao" layoutX="67.0" layoutY="415.0" prefHeight="121.0" prefWidth="271.0" />
+            <JFXTextField fx:id="textNome" editable="false" layoutX="526.0" layoutY="120.0" maxWidth="317.0" minWidth="159.0" prefHeight="43.0" prefWidth="317.0" promptText="Nome correspondente ao CPF" unFocusColor="#fdfafa" />
+            <JFXTextField fx:id="textModelo" editable="false" layoutX="526.0" layoutY="181.0" maxWidth="317.0" minWidth="159.0" prefHeight="43.0" prefWidth="317.0" promptText="Modelo correspondente a Placa" unFocusColor="#fdfafa" />
+            <JFXTextField fx:id="textOrigem" editable="false" layoutX="565.0" layoutY="245.0" maxWidth="266.0" minWidth="112.0" prefHeight="43.0" prefWidth="112.0" promptText="Origem" unFocusColor="#fdfafa" />
+            <JFXTextField fx:id="textDestino" editable="false" layoutX="713.0" layoutY="245.0" maxWidth="266.0" minWidth="120.0" prefHeight="43.0" prefWidth="130.0" promptText="Destino" unFocusColor="#fdfafa" />
+            <JFXTextField fx:id="textStatus" layoutX="677.0" layoutY="492.0" maxWidth="266.0" minWidth="120.0" prefHeight="43.0" prefWidth="168.0" promptText="Digite o status" unFocusColor="#fdfafa" />
+            <JFXTextField fx:id="textDescricao" editable="false" layoutX="527.0" layoutY="313.0" maxWidth="317.0" minWidth="120.0" prefHeight="43.0" prefWidth="317.0" promptText="Descrição" unFocusColor="#fdfafa" />
+            <Label layoutX="537.0" layoutY="254.0" text="De:" textFill="#f6f5f5">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="677.0" layoutY="254.0" text="Até:" textFill="#f6f5f5">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

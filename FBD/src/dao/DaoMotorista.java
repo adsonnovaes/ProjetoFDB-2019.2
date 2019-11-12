@@ -191,6 +191,33 @@ public class DaoMotorista implements IDaoMotorista{
 		return obs;
 	}
 
+	@Override
+	public Motorista buscarMotoristaIden(int rg) throws DaoException {
+		Motorista moto = new Motorista();
+
+		try {
+
+			this.conexao = SqlConnection.creatConnection();
+			this.statement = conexao.prepareStatement(SqlUtil.Motorista.GET_RG);
+			statement.setInt(1, rg);
+
+			this.rs = statement.executeQuery();
+
+			if(rs != null && rs.next()){
+
+				moto.setId(rs.getInt("id_motorista"));
+				moto.setNome(rs.getString("nome"));
+				moto.setIdentidade(rs.getInt("rg"));
+			}
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return moto;
+	}
+
 
 
 

@@ -11,6 +11,7 @@ public interface IDaoMotorista {
 	public Motorista EditarMotorista(Motorista motorista) throws DaoException;
 	public Motorista BuscarMotoristaID(int id) throws DaoException;
 	public boolean BuscarMotoristaRg(int rg) throws DaoException;
+	public Motorista buscarMotoristaIden(int rg) throws DaoException;
 	public void DeleteMotorista(int id);
 	public void UpdateMotorista(Motorista i);
 	public ObservableList<Motorista> getAllMotorista();
