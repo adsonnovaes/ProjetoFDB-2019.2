@@ -137,5 +137,12 @@ public class SqlUtil {
 
     }
 
+    public static class Caixa{
+
+        public static String GETALL = "select distinct  c.descricao,c.valor_total,v.data_saida,v.data_chegada"+
+        		" from rotasviagens.carga c join rotasviagens.viagem v on c.id_carga = v.carga_id_carga;";
+
+    }
+
 
 }

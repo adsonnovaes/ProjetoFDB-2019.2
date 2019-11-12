@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.sql.Date;
 
 import com.jfoenix.controls.JFXButton;
@@ -11,6 +12,8 @@ import exception.BusinessException;
 import exception.DaoException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import mensagem.Mensagem;
 import model.Carga;
@@ -18,6 +21,7 @@ import model.Motorista;
 import model.Rota;
 import model.Veiculo;
 import model.Viagem;
+import util.Util;
 
 public class ControllerCadastroViagem {
 
@@ -84,31 +88,45 @@ public class ControllerCadastroViagem {
     private Carga carga = new Carga();
 
     @FXML
-    void ShowCancelarCadastro(ActionEvent event) {
+    void ShowCancelarCadastro(ActionEvent event) throws IOException {
+    	new Mensagem("Operação cancelada com sucesso.");
+  		Scene scene = (Scene) ((Node) event.getSource()).getScene();
+    	Util.LoadWindow(getClass().getResource("/view/TelaCadastroViagem.fxml"), scene, "x");
 
     }
 
 
     @FXML
-    void ShowConfirmarCadastro(ActionEvent event) throws BusinessException {
+    void ShowConfirmarCadastro(ActionEvent event) throws BusinessException, IOException {
 
-    	Viagem viagem = new Viagem();
+    	if(textStatus.getText().length() > 0 && areaDescricao.getText().length() > 0
+    	    && textIdCarga.getText().length() > 0 && textIdRota.getText().length() > 0
+    	    && textMotorista.getText().length() > 0 && textVeiculo.getText().length() > 0){
 
-		Date date1 = Date.valueOf(dateSaida.getValue());
+	    	Viagem viagem = new Viagem();
 
-		Date date2 = Date.valueOf(dateChegada.getValue());
+			Date date1 = Date.valueOf(dateSaida.getValue());
 
-    	viagem.setData_saida(date1);
-    	viagem.setData_chegada(date2);
-    	viagem.setStatus(textStatus.getText());
-    	viagem.setDescricao(areaDescricao.getText());
-    	viagem.setId_motorista(moto.getId());
-    	viagem.setId_veiculo(veiculo.getId());
-    	viagem.setId_rota(rota.getId());
-    	viagem.setId_carga(carga.getId());
+			Date date2 = Date.valueOf(dateChegada.getValue());
 
-    	Main.fachada.salvarViagem(viagem);
+	    	viagem.setData_saida(date1);
+	    	viagem.setData_chegada(date2);
+	    	viagem.setStatus(textStatus.getText());
+	    	viagem.setDescricao(areaDescricao.getText());
+	    	viagem.setId_motorista(moto.getId());
+	    	viagem.setId_veiculo(veiculo.getId());
+	    	viagem.setId_rota(rota.getId());
+	    	viagem.setId_carga(carga.getId());
 
+	    	Main.fachada.salvarViagem(viagem);
+
+	    	new Mensagem("Viagem cadastrada com sucesso.");
+
+	  		Scene scene = (Scene) ((Node) event.getSource()).getScene();
+	    	Util.LoadWindow(getClass().getResource("/view/TelaCadastroViagem.fxml"), scene, "x");
+
+
+    	}
 
 
 

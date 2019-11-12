@@ -1,25 +1,25 @@
 package model;
 
+import java.sql.Date;
+
 public class Caixa {
 
-	private Veiculo veiculo;
-	private Motorista motorista;
+	private Date dateSaida;
+	private Date dateEntrega;
 	private float valorTotal;
-	private Carga carga;
+	private String descricao;
 
-
-
-	public Veiculo getVeiculo() {
-		return veiculo;
+	public Date getDateSaida() {
+		return dateSaida;
 	}
-	public void setVeiculo(Veiculo veiculo) {
-		this.veiculo = veiculo;
+	public void setDateSaida(Date dateSaida) {
+		this.dateSaida = dateSaida;
 	}
-	public Motorista getMotorista() {
-		return motorista;
+	public Date getDateEntrega() {
+		return dateEntrega;
 	}
-	public void setMotorista(Motorista motorista) {
-		this.motorista = motorista;
+	public void setDateEntrega(Date dateEntrega) {
+		this.dateEntrega = dateEntrega;
 	}
 	public float getValorTotal() {
 		return valorTotal;
@@ -27,11 +27,12 @@ public class Caixa {
 	public void setValorTotal(float valorTotal) {
 		this.valorTotal = valorTotal;
 	}
-	public Carga getCarga() {
-		return carga;
+	public String getDescricao() {
+		return descricao;
 	}
-	public void setCarga(Carga carga) {
-		this.carga = carga;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
+
 
 }
