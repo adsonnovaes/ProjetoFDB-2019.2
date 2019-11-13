@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
@@ -22,6 +23,7 @@ import exception.DaoException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -308,6 +310,40 @@ public class ControllerGerenViagem implements Initializable{
 
     @FXML
     void showSearch(KeyEvent event) {
+    	textSearch.textProperty().addListener((observableValue, oldValue,newValue)->{
+    		filteredData.setPredicate(Viagem->{
+    			if(newValue==null || newValue.isEmpty()){
+    				return true;
+    			}
+    			String lowerCaseFilter = newValue.toLowerCase();
+
+    			if(String.valueOf(Viagem.getDescricao()).toLowerCase().contains(lowerCaseFilter)){
+    				return true;
+    			}
+    			else if(Viagem.getStatus().toLowerCase().contains(lowerCaseFilter)){
+    				return true;
+    			}
+    			else if(Integer.toString(Viagem.getId_carga()).toLowerCase().contains(lowerCaseFilter)){
+    				return true;
+    			}
+    			else if(Viagem.getData_chegada().toLocalDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")).contains(lowerCaseFilter)){
+    				return true;
+    			}
+
+    			else if(Viagem.getData_saida().toLocalDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")).contains(lowerCaseFilter)){
+    				return true;
+    			}
+
+    			else if(Integer.toString(Viagem.getId_rota()).toLowerCase().contains(lowerCaseFilter)){
+    				return true;
+    			}
+
+    			return false;
+    		});
+    	});
+    	SortedList<Viagem> sortedData = new SortedList<>(filteredData);
+    	sortedData.comparatorProperty().bind(tabGerenViagens.comparatorProperty());
+    	tabGerenViagens.setItems(sortedData);
 
     }
 
@@ -322,6 +358,7 @@ public class ControllerGerenViagem implements Initializable{
 		daoMotorista = new DaoMotorista();
 		daoVeiculo = new DaoVeiculo();
 		initTable();
+
 	}
 
 }

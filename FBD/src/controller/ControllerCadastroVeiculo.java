@@ -120,6 +120,14 @@ public class ControllerCadastroVeiculo implements Initializable{
 		comboTipoCarroceria.getItems().addAll("Baú","Graneleiro");
 		comboTipoVeiculo.getItems().addAll("Eixo-duplo","Carreta","Bitrem");
 
+		textPlaca.textProperty().addListener((observable,oldValue,newValue) -> {
+
+			if(newValue.length() > 7){
+				textPlaca.setText(oldValue);
+				}
+
+		});
+
 
 	}
 

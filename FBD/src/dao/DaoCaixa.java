@@ -10,7 +10,6 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Caixa;
-import model.Viagem;
 import sql.SqlConnection;
 import sql.SqlUtil;
 
@@ -19,6 +18,11 @@ public class DaoCaixa implements IDaoCaixa{
     private Connection conexao;
     private PreparedStatement statement;
     private ResultSet rs;
+    private static float total;
+
+    public static float GetTotal(){
+    	return total;
+    }
 
 	@Override
 	public ObservableList<Caixa> getAllCaixa() {
@@ -31,7 +35,7 @@ public class DaoCaixa implements IDaoCaixa{
 			this.rs = statement.executeQuery();
 
 			while(rs.next()){
-
+				this.total += rs.getFloat("valor_total");
 				Caixa caixa = new Caixa();
 
 				caixa.setValorTotal(rs.getFloat("valor_total"));

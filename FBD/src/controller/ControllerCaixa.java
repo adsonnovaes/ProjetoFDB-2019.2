@@ -1,10 +1,12 @@
 package controller;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTextField;
 
 import dao.DaoCaixa;
 import dao.IDaoCaixa;
@@ -45,8 +47,12 @@ public class ControllerCaixa implements Initializable{
     @FXML
     private JFXButton btnFiltro;
 
+    @FXML
+    private JFXTextField textValor;
 
     private IDaoCaixa daoCaixa;
+
+    private float valor;
 
     private FilteredList<Caixa> filteredData;
 
@@ -57,6 +63,8 @@ public class ControllerCaixa implements Initializable{
 
 		oblist = daoCaixa.getAllCaixa();
 
+		valor = DaoCaixa.GetTotal();
+
     	filteredData = new FilteredList<>(oblist);
 
 		colCarga.setCellValueFactory(new PropertyValueFactory<>("descricao"));
@@ -65,10 +73,14 @@ public class ControllerCaixa implements Initializable{
 		colValorTotal.setCellValueFactory(new PropertyValueFactory<>("valorTotal"));
 
 		tabCaixa.setItems(oblist);
+		DecimalFormat df = new DecimalFormat("0.00");
+		textValor.setText("R$ " + df.format(valor));
     }
 
     @FXML
     void ShowFiltro(ActionEvent event) {
+
+
 
     }
 

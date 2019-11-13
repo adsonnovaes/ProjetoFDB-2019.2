@@ -1,7 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Date;
+import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
@@ -12,6 +14,7 @@ import exception.BusinessException;
 import exception.DaoException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
@@ -23,7 +26,7 @@ import model.Veiculo;
 import model.Viagem;
 import util.Util;
 
-public class ControllerCadastroViagem {
+public class ControllerCadastroViagem implements Initializable{
 
     @FXML
     private JFXTextField textVeiculo;
@@ -103,29 +106,31 @@ public class ControllerCadastroViagem {
     	    && textIdCarga.getText().length() > 0 && textIdRota.getText().length() > 0
     	    && textMotorista.getText().length() > 0 && textVeiculo.getText().length() > 0){
 
-	    	Viagem viagem = new Viagem();
+		    	Viagem viagem = new Viagem();
 
-			Date date1 = Date.valueOf(dateSaida.getValue());
+				Date date1 = Date.valueOf(dateSaida.getValue());
 
-			Date date2 = Date.valueOf(dateChegada.getValue());
+				Date date2 = Date.valueOf(dateChegada.getValue());
 
-	    	viagem.setData_saida(date1);
-	    	viagem.setData_chegada(date2);
-	    	viagem.setStatus(textStatus.getText());
-	    	viagem.setDescricao(areaDescricao.getText());
-	    	viagem.setId_motorista(moto.getId());
-	    	viagem.setId_veiculo(veiculo.getId());
-	    	viagem.setId_rota(rota.getId());
-	    	viagem.setId_carga(carga.getId());
+		    	viagem.setData_saida(date1);
+		    	viagem.setData_chegada(date2);
+		    	viagem.setStatus(textStatus.getText());
+		    	viagem.setDescricao(areaDescricao.getText());
+		    	viagem.setId_motorista(moto.getId());
+		    	viagem.setId_veiculo(veiculo.getId());
+		    	viagem.setId_rota(rota.getId());
+		    	viagem.setId_carga(carga.getId());
 
-	    	Main.fachada.salvarViagem(viagem);
+		    	Main.fachada.salvarViagem(viagem);
 
-	    	new Mensagem("Viagem cadastrada com sucesso.");
+		    	new Mensagem("Viagem cadastrada com sucesso.");
 
-	  		Scene scene = (Scene) ((Node) event.getSource()).getScene();
-	    	Util.LoadWindow(getClass().getResource("/view/TelaCadastroViagem.fxml"), scene, "x");
+		  		Scene scene = (Scene) ((Node) event.getSource()).getScene();
+		    	Util.LoadWindow(getClass().getResource("/view/TelaCadastroViagem.fxml"), scene, "x");
 
 
+    	}else{
+    		new Mensagem("Preencha todos os campos.");
     	}
 
 
@@ -192,5 +197,27 @@ public class ControllerCadastroViagem {
 
 
     }
+
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		textMotorista.textProperty().addListener((observable,oldValue,newValue) -> {
+
+			if(newValue.length() > 7){
+				textMotorista.setText(oldValue);
+			}
+			if (!newValue.matches("\\d*")) {
+				textMotorista.setText(oldValue);
+			}
+		});
+
+		textVeiculo.textProperty().addListener((observable,oldValue,newValue) -> {
+
+			if(newValue.length() > 7){
+				textVeiculo.setText(oldValue);
+			}
+
+		});
+	}
 
 }
