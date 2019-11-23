@@ -1,7 +1,9 @@
 package controller;
 
 import java.net.URL;
+import java.sql.Date;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
@@ -16,6 +18,7 @@ import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -30,10 +33,10 @@ public class ControllerCaixa implements Initializable{
     private TableColumn<Caixa,String> colCarga;
 
     @FXML
-    private TableColumn<Caixa,String> colSaida;
+    private TableColumn<Caixa,Date> colSaida;
 
     @FXML
-    private TableColumn<Caixa,String> colEntrega;
+    private TableColumn<Caixa,Date> colEntrega;
 
     @FXML
     private TableColumn<Caixa,String> colValorTotal;
@@ -69,11 +72,49 @@ public class ControllerCaixa implements Initializable{
 
 		colCarga.setCellValueFactory(new PropertyValueFactory<>("descricao"));
 		colSaida.setCellValueFactory(new PropertyValueFactory<>("dateSaida"));
+
+		colSaida.setCellFactory(column -> {
+			TableCell<Caixa, Date> cell = new TableCell<Caixa, Date>() {
+				private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
+				@Override
+				protected void updateItem(Date item, boolean empty) {
+					super.updateItem(item, empty);
+					if(empty) {
+						setText(null);
+					}
+					else {
+						this.setText(format.format(item));
+					}
+				}
+			};
+			return cell;
+		});
+
 		colEntrega.setCellValueFactory(new PropertyValueFactory<>("dateEntrega"));
+
+		colEntrega.setCellFactory(column -> {
+			TableCell<Caixa, Date> cell = new TableCell<Caixa, Date>() {
+				private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
+				@Override
+				protected void updateItem(Date item, boolean empty) {
+					super.updateItem(item, empty);
+					if(empty) {
+						setText(null);
+					}
+					else {
+						this.setText(format.format(item));
+					}
+				}
+			};
+			return cell;
+		});
+
 		colValorTotal.setCellValueFactory(new PropertyValueFactory<>("valorTotal"));
 
 		tabCaixa.setItems(oblist);
-		DecimalFormat df = new DecimalFormat("0.00");
+		DecimalFormat df = new DecimalFormat("0.000");
 		textValor.setText("R$ " + df.format(valor));
     }
 

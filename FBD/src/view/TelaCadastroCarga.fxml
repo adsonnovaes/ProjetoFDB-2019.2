@@ -2,10 +2,10 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXDatePicker?>
-<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -72,10 +72,10 @@
                   </JFXButton>
                </children>
             </HBox>
-            <JFXTextArea fx:id="areaDescricao" layoutX="65.0" layoutY="402.0" maxWidth="302.0" minWidth="302.0" prefHeight="129.0" prefWidth="302.0" unFocusColor="WHITE" />
             <ComboBox fx:id="boxTipo" layoutX="64.0" layoutY="176.0" prefHeight="41.0" prefWidth="159.0" promptText="Selecione" />
-            <JFXDatePicker fx:id="dateFabricacao" defaultColor="BLACK" editable="false" layoutX="259.0" layoutY="283.0" prefHeight="25.0" prefWidth="168.0" promptText="23/03/2019" stylesheets="@../css/darktheme.css" />
-            <JFXDatePicker fx:id="dateValiadade" defaultColor="BLACK" editable="false" layoutX="569.0" layoutY="281.0" prefHeight="25.0" prefWidth="168.0" promptText="23/03/2019" stylesheets="@../css/darktheme.css" />
+            <JFXDatePicker fx:id="dateFabricacao" defaultColor="BLACK" editable="false" layoutX="259.0" layoutY="283.0" prefHeight="43.0" prefWidth="178.0" promptText="23/03/2019" stylesheets="@../css/darktheme.css" />
+            <JFXDatePicker fx:id="dateValiadade" defaultColor="BLACK" editable="false" layoutX="569.0" layoutY="281.0" prefHeight="43.0" prefWidth="178.0" promptText="23/03/2019" stylesheets="@../css/darktheme.css" />
+            <TextArea fx:id="areaDescricao" layoutX="65.0" layoutY="391.0" prefHeight="119.0" prefWidth="358.0" />
          </children>
       </Pane>
    </children>

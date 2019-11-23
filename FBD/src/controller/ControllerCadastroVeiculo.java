@@ -69,7 +69,10 @@ public class ControllerCadastroVeiculo implements Initializable{
     private JFXButton btnRetornar;
 
     @FXML
-    void ShowCancelarCadastro(ActionEvent event) {
+    void ShowCancelarCadastro(ActionEvent event) throws IOException {
+    	new Mensagem("Operação cancelada com sucesso!");
+		Scene scene = (Scene) ((Node) event.getSource()).getScene();
+    	Util.LoadWindow(getClass().getResource("/view/TelaCadastroVeiculo.fxml"), scene, "x");
 
 
     }
@@ -117,8 +120,8 @@ public class ControllerCadastroVeiculo implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		comboTipoCarroceria.getItems().addAll("Baú","Graneleiro");
-		comboTipoVeiculo.getItems().addAll("Eixo-duplo","Carreta","Bitrem");
+		comboTipoCarroceria.getItems().addAll("Baú","Graneleira","Baú frigorífico","Grade baixa","Prancha");
+		comboTipoVeiculo.getItems().addAll("Toco","Truck","Bi-truck","Cavalo Mecânico","Bitrem");
 
 		textPlaca.textProperty().addListener((observable,oldValue,newValue) -> {
 
@@ -127,6 +130,42 @@ public class ControllerCadastroVeiculo implements Initializable{
 				}
 
 		});
+
+		textRenavam.textProperty().addListener((observable,oldValue,newValue) -> {
+
+			if(newValue.length() > 9){
+				textRenavam.setText(oldValue);
+				}
+
+			if (!newValue.matches("\\d*")) {
+				textRenavam.setText(oldValue);
+			}
+
+		});
+
+		textAno.textProperty().addListener((observable,oldValue,newValue) -> {
+
+			if(newValue.length() > 4){
+				textAno.setText(oldValue);
+				}
+
+			if (!newValue.matches("\\d*")) {
+				textAno.setText(oldValue);
+			}
+
+		});
+
+		textUf.textProperty().addListener((observable,oldValue,newValue) -> {
+
+			if(newValue.length() > 2){
+				textUf.setText(oldValue);
+				}
+
+			if (newValue.matches("\\d+")) {
+				textUf.setText(oldValue);
+			}
+		});
+
 
 
 	}

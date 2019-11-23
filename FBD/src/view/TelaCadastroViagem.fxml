@@ -99,7 +99,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <TextArea fx:id="areaDescricao" layoutX="67.0" layoutY="415.0" prefHeight="121.0" prefWidth="271.0" />
+            <TextArea fx:id="areaDescricao" layoutX="64.0" layoutY="417.0" prefHeight="121.0" prefWidth="418.0" />
             <JFXTextField fx:id="textNome" editable="false" layoutX="526.0" layoutY="120.0" maxWidth="317.0" minWidth="159.0" prefHeight="43.0" prefWidth="317.0" promptText="Nome correspondente ao CPF" unFocusColor="#fdfafa" />
             <JFXTextField fx:id="textModelo" editable="false" layoutX="526.0" layoutY="181.0" maxWidth="317.0" minWidth="159.0" prefHeight="43.0" prefWidth="317.0" promptText="Modelo correspondente a Placa" unFocusColor="#fdfafa" />
             <JFXTextField fx:id="textOrigem" editable="false" layoutX="565.0" layoutY="245.0" maxWidth="266.0" minWidth="112.0" prefHeight="43.0" prefWidth="112.0" promptText="Origem" unFocusColor="#fdfafa" />

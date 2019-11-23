@@ -22,6 +22,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -55,10 +56,10 @@ public class ControllerGerenCarga implements Initializable{
     private TableColumn<Carga, String> colValor;
 
     @FXML
-    private TableColumn<Carga, String> colFabricacao;
+    private TableColumn<Carga, Date> colFabricacao;
 
     @FXML
-    private TableColumn<Carga, String> colValidade;
+    private TableColumn<Carga, Date> colValidade;
 
     @FXML
     private TableColumn<Carga, String> colDescricao;
@@ -121,7 +122,45 @@ public class ControllerGerenCarga implements Initializable{
 		colPeso.setCellValueFactory(new PropertyValueFactory<>("pesoTotal"));
 		colValor.setCellValueFactory(new PropertyValueFactory<>("valorTotal"));
 		colFabricacao.setCellValueFactory(new PropertyValueFactory<>("fabricacao"));
+
+		colFabricacao.setCellFactory(column -> {
+			TableCell<Carga, Date> cell = new TableCell<Carga, Date>() {
+				private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
+				@Override
+				protected void updateItem(Date item, boolean empty) {
+					super.updateItem(item, empty);
+					if(empty) {
+						setText(null);
+					}
+					else {
+						this.setText(format.format(item));
+					}
+				}
+			};
+			return cell;
+		});
+
 		colValidade.setCellValueFactory(new PropertyValueFactory<>("validade"));
+
+		colValidade.setCellFactory(column -> {
+			TableCell<Carga, Date> cell = new TableCell<Carga, Date>() {
+				private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
+				@Override
+				protected void updateItem(Date item, boolean empty) {
+					super.updateItem(item, empty);
+					if(empty) {
+						setText(null);
+					}
+					else {
+						this.setText(format.format(item));
+					}
+				}
+			};
+			return cell;
+		});
+
 		colDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
 
 		tabGerenCargas.setItems(oblist);

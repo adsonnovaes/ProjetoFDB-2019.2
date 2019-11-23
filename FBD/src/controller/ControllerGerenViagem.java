@@ -29,6 +29,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -66,10 +67,10 @@ public class ControllerGerenViagem implements Initializable{
     private TableColumn<Viagem, String> colCarga;
 
     @FXML
-    private TableColumn<Viagem, String> colSaida;
+    private TableColumn<Viagem, Date> colSaida;
 
     @FXML
-    private TableColumn<Viagem, String> colChegada;
+    private TableColumn<Viagem, Date> colChegada;
 
     @FXML
     private TableColumn<Viagem, String> colStatus;
@@ -151,7 +152,45 @@ public class ControllerGerenViagem implements Initializable{
 		colRota.setCellValueFactory(new PropertyValueFactory<>("id_rota"));
 		colCarga.setCellValueFactory(new PropertyValueFactory<>("id_carga"));
 		colSaida.setCellValueFactory(new PropertyValueFactory<>("data_saida"));
+
+		colSaida.setCellFactory(column -> {
+			TableCell<Viagem, Date> cell = new TableCell<Viagem, Date>() {
+				private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
+				@Override
+				protected void updateItem(Date item, boolean empty) {
+					super.updateItem(item, empty);
+					if(empty) {
+						setText(null);
+					}
+					else {
+						this.setText(format.format(item));
+					}
+				}
+			};
+			return cell;
+		});
+
 		colChegada.setCellValueFactory(new PropertyValueFactory<>("data_chegada"));
+
+		colChegada.setCellFactory(column -> {
+			TableCell<Viagem, Date> cell = new TableCell<Viagem, Date>() {
+				private SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
+				@Override
+				protected void updateItem(Date item, boolean empty) {
+					super.updateItem(item, empty);
+					if(empty) {
+						setText(null);
+					}
+					else {
+						this.setText(format.format(item));
+					}
+				}
+			};
+			return cell;
+		});
+
 		colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 		colDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
 

@@ -2,6 +2,7 @@ package app;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.TimeZone;
 
 import fachada.Fachada;
 import fachada.IFachada;
@@ -30,7 +31,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException, SQLException {
 
-
+		TimeZone.setDefault(TimeZone.getTimeZone("Etc/UTC"));
 		new FillData();
 
 		Pane login = FXMLLoader.load(getClass().getResource("/view/TelaLogin.fxml"));
