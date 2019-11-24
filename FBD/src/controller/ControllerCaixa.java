@@ -15,6 +15,7 @@ import dao.IDaoCaixa;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -118,9 +119,34 @@ public class ControllerCaixa implements Initializable{
 		textValor.setText("R$ " + df.format(valor));
     }
 
+
     @FXML
     void ShowFiltro(ActionEvent event) {
 
+		filteredData.setPredicate(Caixa->{
+
+			if(dateInicial==null || dateFinal == null){
+				return true;
+			}
+			Date dateI = Date.valueOf(dateInicial.getValue());
+
+			Date dateF = Date.valueOf(dateFinal.getValue());
+
+
+			if(Caixa.getDateSaida().after(dateI) && Caixa.getDateEntrega().before(dateF)){
+				return true;
+			}
+
+			else if(Caixa.getDateSaida().equals(dateI) || Caixa.getDateEntrega().equals(dateF)){
+				return true;
+			}
+
+			return false;
+		});
+
+    	SortedList<Caixa> sortedData = new SortedList<>(filteredData);
+    	sortedData.comparatorProperty().bind(tabCaixa.comparatorProperty());
+    	tabCaixa.setItems(sortedData);
 
 
     }
